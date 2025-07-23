@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kasnia Project</title>
+    <link rel="stylesheet" href="/assets/css/style-general.css?v=1.0" />
+    <script src="/assets/js/script-modo-oscuro.js?v=1.0"></script>
+
+    <!--Aca iran los logos en un futuro-->
+    <link
+      rel="shortcut icon"
+      href="/assets/img/logos/icon-blanco.ico"
+      sizes="32x32"
+      type="image/x-icon"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="shortcut icon"
+      href="/assets/img/logos/icon-negro.ico"
+      sizes="32x32"
+      type="image/x-icon"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="shortcut icon"
+      href="/assets/img/logos/icon-blanco-180.png"
+      sizes="180x180"
+      type="image/png"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="shortcut icon"
+      href="/assets/img/logos/icon-negro-180.png"
+      sizes="180x180"
+      type="image/png"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/img/logos/icon-blanco-180.png"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/img/logos/icon-negro-180.png"
+      media="(prefers-color-scheme: dark)"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="nav-izquierda">
+        <a href="/">Página principal</a>
+      </div>
+
+      <div class="nav-derecha">
+        <a>Novelas</a>
+        <!--Menu desplegable-->
+      </div>
+    </header>
+
+    <div class="container-1">
+      <div class="contenido">
+        <picture class="logo light-theme">
+          <source
+            srcset="/assets/img/logos/logo-blanco.avif"
+            type="image/avif"
+          />
+          <img src="/assets/img/logos/logo-blanco.png" alt="Proyecto BetaNao" />
+        </picture>
+
+        <!--Logo modo oscuro-->
+        <picture class="logo dark-theme">
+          <source
+            srcset="/assets/img/logos/logo-blanco.avif"
+            type="image/avif"
+          />
+          <img src="/assets/img/logos/logo-blanco.png" alt="Proyecto BetaNao" />
+        </picture>
+
+        <div class="separador"></div>
+
+        <p>Breve descripcion quizas?</p>
+      </div>
+    </div>
+
+    <div class="container-2">
+      <div class="contenido">
+        <h2>Novelas traducidas</h2>
+
+        <div class="separador"></div>
+
+        <div class="lista-novelas">
+          <article class="novela">
+            <div class="portada-container">
+              <picture class="portada">
+                <source
+                  src="/assets/img/avif/assassins-pride/v01.avif"
+                  type="image/avif"
+                />
+                <img
+                  src="/assets/img/jpg/assassins-pride/v01.jpg"
+                  alt="Portada Assassins Pride"
+                />
+              </picture>
+            </div>
+
+            <div class="contenido-novela">
+              <h3 class="titulo-novela">Assassins Pride</h3>
+              <p class="sinopsis">
+                Solo aquellos procedentes de linajes de familias nobles tienen
+                la capacidad de enfrentar a los monstruos. Kufa es un noble
+                nacido en la familia de un duque a quien envían como tutor de
+                una joven llamada Merida. Merida no tiene talento alguno con el
+                maná, lo que hace que en realidad la misión secreta y real de
+                Kufa sea asesinarla.
+              </p>
+              <div class="centrado">
+                <button class="link">Ver más</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="novela">
+            <div class="portada-container">
+              <picture class="portada">
+                <source
+                  src="/assets/img/avif/beast-tamer/v01.avif"
+                  type="image/avif"
+                />
+                <img
+                  src="/assets/img/jpg/beast-tamer/v01.jpg"
+                  alt="Portada Beast Tamer"
+                />
+              </picture>
+            </div>
+
+            <div class="contenido-novela">
+              <h3 class="titulo-novela">Beast Tamer</h3>
+              <p class="sinopsis">
+                ¡Esta historia de fantasía transmite el vínculo entre un domador
+                de bestias y la chica gato más fuerte desde su primer encuentro!
+                Rein, un domador de bestias que lucha con la ayuda de animales,
+                ha sido miembro del grupo del héroe durante mucho tiempo. Sin
+                embargo, sin que él lo supiera, estaba arrastrando a sus
+                compañeros de equipo porque no tenía otras habilidades. "No
+                vales nada más que domesticar animales. Estás despedido". Con
+                eso, fue expulsado del grupo.
+              </p>
+              <div class="centrado">
+                <button class="link">Ver más</button>
+              </div>
+            </div>
+          </article>
+
+          <!--mas novelas-->
+        </div>
+      </div>
+    </div>
+
+    <!--Boton para modo oscuro-->
+    <button id="toggle-theme" class="theme-toggle"></button>
+  </body>
+</html>
