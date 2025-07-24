@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seirei Gensouki ─ Kasnia Project</title>
+    <link rel="stylesheet" href="/assets/css/style-general.css?v=1.2" />
+    <link rel="stylesheet" href="/assets/css/style-novelas.css?v=0.1" />
+    <script src="/assets/js/script-modo-oscuro.js?v=1.0"></script>
+    <script src="/assets/js/script-navbar.js?v=1.0"></script>
+  </head>
+  <body>
+    <header>
+      <div class="nav-izquierda">
+        <a href="/">Página principal</a>
+      </div>
+
+      <div class="nav-derecha">
+        <div class="dropdown">
+          <button
+            class="dropdown-toggle"
+            aria-expanded="false"
+            aria-controls="novelas-dropdown"
+          >
+            Novelas
+            <svg class="dropdown-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 10l5 5 5-5z" />
+            </svg>
+          </button>
+          <div class="dropdown-menu" id="novelas-dropdown">
+            <div class="dropdown-group">
+              <h4 class="dropdown-header">Activas</h4>
+              <ul>
+                <li><a href="/beast-tamer">Beast Tamer</a></li>
+                <li><a href="/seirei-gensouki">Seirei Gensouki</a></li>
+                <li>
+                  <a href="/madougushi-dahliya">Madougushi Dahliya</a>
+                </li>
+              </ul>
+            </div>
+            <div class="dropdown-group">
+              <h4 class="dropdown-header">Pausadas</h4>
+              <ul>
+                <li><a href="/assassins-pride">Assassins Pride</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container-1">
+      <div class="contenido">
+        <h1>Seirei Gensouki</h1>
+      </div>
+    </div>
+
+    <!--Boton para modo oscuro-->
+    <button id="toggle-theme" class="theme-toggle"></button>
+  </body>
+</html>
