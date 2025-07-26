@@ -1,0 +1,200 @@
+.novela-detalle {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+  gap: 2rem;
+  align-items: center;
+}
+
+.portada-container {
+  display: block;
+  margin: 0 auto;
+  max-width: 300px;
+}
+
+.portada img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.portada img:hover {
+  transform: scale(1.03);
+}
+
+.info-novela {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+.info-novela h1 {
+  margin: 0;
+}
+
+.sinopsis {
+  text-align: justify;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  hyphens: auto;
+}
+
+.dark-mode .portada img {
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+/* Informacion novela */
+.info-tecnica {
+  margin-top: 2rem;
+  width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .info-tecnica {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.fila-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.dato {
+  flex: 1;
+  min-width: 0;
+}
+
+.etiqueta {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 1rem;
+}
+
+.valor {
+  display: block;
+  font-size: 1rem;
+}
+
+/* Seccion descargas */
+.grid-volumenes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(130px, 100%), 1fr));
+  gap: 1.5rem;
+}
+
+.volumen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+}
+
+.portada-volumen {
+  width: 100%;
+  max-width: 150px;
+  margin: 0 auto;
+}
+
+.portada-volumen img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.volumen:hover .portada-volumen img {
+  transform: scale(1.03);
+}
+
+.dark-mode .portada-volumen img {
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.botones-descarga {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 120px;
+  margin-top: 0.3rem;
+}
+
+.boton-descarga {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.3rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: filter 0.2s ease;
+  color: var(--texto-o);
+}
+
+.boton-descarga span {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.icono-descarga {
+  width: 20px;
+  height: 20px;
+  margin-left: 0.5rem;
+  object-fit: contain;
+}
+
+.boton-descarga.pdf {
+  background-color: var(--pdf);
+}
+
+.boton-descarga.epub {
+  background-color: var(--link);
+}
+
+.boton-descarga:hover {
+  filter: brightness(90%);
+}
+
+.portada-volumen.proximamente {
+  position: relative;
+}
+
+.portada-volumen.proximamente::after {
+  content: "Próximamente";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: var(--texto-o);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+}
+
+.portada-volumen.proximamente img {
+  pointer-events: none;
+}
+
+.volumen:hover .portada-volumen.proximamente img {
+  transform: none;
+}
+
+.botones-descarga .boton-descarga[href="#"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}

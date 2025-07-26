@@ -1,3 +1,7 @@
+@view-transition {
+  navigation: auto;
+}
+
 /* Reset básico */
 *,
 *::before,
@@ -13,6 +17,7 @@
   --fondo-2: #ffffff;
   --texto: #000000;
   --link: #0056b3;
+  --pdf: #b30000;
   --fondo-1o: #1a1a1a;
   --fondo-2o: #2a2a2a;
   --texto-o: #f0f0f0;
