@@ -37,6 +37,11 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
+.dark-mode {
+  background-color: var(--fondo-1o);
+  color: var(--texto-o);
+}
+
 /* Encabezados */
 h1,
 h2,
@@ -68,8 +73,7 @@ h3 {
 
 .logo img {
   width: 100%;
-  max-width: 20rem;
-  /*max-height: 2.5rem;*/
+  max-width: 320px;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -85,12 +89,12 @@ body.dark-mode .logo.dark-theme {
 p {
   margin: 1rem auto;
   text-align: center;
-  max-width: 35.3125rem;
+  max-width: 565px;
 }
 
 /* Contenedores */
 div {
-  margin: 1em 0 auto;
+  margin: 1rem 0 auto;
 }
 
 .container-1,
@@ -98,12 +102,20 @@ div {
   padding: 2.5rem;
 }
 
+.dark-mode .container-1 {
+  background-color: var(--fondo-1o);
+}
+
 .container-2 {
   background-color: var(--fondo-2);
 }
 
+.dark-mode .container-2 {
+  background-color: var(--fondo-2o);
+}
+
 .contenido {
-  max-width: 38.75rem;
+  max-width: 620px;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -139,173 +151,33 @@ header a:hover {
   text-decoration: underline;
 }
 
+.dark-mode .enlinea {
+  color: var(--link-0);
+}
+
 /* Navbar */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem 0;
-  max-width: 48rem;
+  max-width: 768px;
   margin: 0 auto;
 }
 
-.nav-izquerda a,
+.nav-izquierda a,
 .nav-derecha a {
   font-size: clamp(1rem, 1.2vw + 0.6rem, 1.2rem);
+}
+
+.dark-mode header a {
+  color: var(--texto-o);
 }
 
 .nav-derecha a {
   margin-left: 1.2rem;
 }
 
-/* Botón */
-.link {
-  background-color: var(--boton-1);
-  color: var(--texto-o);
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
-  border-radius: 0.33rem;
-  border: none;
-  cursor: pointer;
-  font-family: inherit;
-  line-height: inherit;
-}
-
-.link:hover {
-  background-color: var(--boton-2);
-}
-
-/* Sección novelas */
-.lista-novelas {
-  display: grid;
-  gap: 2rem;
-}
-
-.novela {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
-  gap: 1.5rem;
-  align-items: center;
-  background-color: var(--fondo-1);
-  padding: 1.5rem;
-  border-radius: 0.75rem;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-  margin: 0;
-}
-
-.portada-container {
-  display: block;
-  margin: 0;
-  padding: 0;
-}
-
-.portada {
-  margin: 0;
-  padding: 0;
-}
-
-.portada img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-  border-radius: 0.5rem;
-}
-
-.contenido-novela {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  justify-content: center;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-}
-
-.titulo-novela {
-  margin: 0;
-}
-
-.sinopsis {
-  text-align: justify;
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.4;
-  hyphens: auto;
-}
-
-.contenido-novela .centrado {
-  margin: 0;
-}
-
-/* Botón cambiar tema */
-.theme-toggle {
-  background-color: var(--boton-1);
-  border: none;
-  border-radius: 50%;
-  width: 2.6rem;
-  height: 2.6rem;
-  font-size: clamp(1.3rem, 1.5vw + 0.5rem, 1.5rem);
-  margin: 0 auto;
-  cursor: pointer;
-  position: fixed;
-  bottom: 1.25rem;
-  right: 1.25rem;
-  z-index: 1000;
-  line-height: 1;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.theme-toggle:hover {
-  background-color: var(--fondo-1);
-  color: var(--boton-1);
-}
-
-/* Modo oscuro */
-.dark-mode {
-  background-color: var(--fondo-1o);
-  color: var(--texto-o);
-}
-
-.dark-mode .container-1 {
-  background-color: var(--fondo-1o);
-}
-
-.dark-mode .container-2 {
-  background-color: var(--fondo-2o);
-}
-
-.dark-mode .link {
-  background-color: var(--boton-2);
-}
-
-.dark-mode .link:hover {
-  background-color: var(--boton-1);
-}
-
-.dark-mode .nav-izquerda a,
-.dark-mode .nav-derecha a {
-  color: var(--texto-o);
-}
-
-.dark-mode .enlinea {
-  color: var(--link-0);
-}
-
-.dark-mode .novela {
-  background-color: var(--fondo-1o);
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.06);
-}
-
-.dark-mode .theme-toggle {
-  background-color: var(--fondo-1);
-}
-
-.dark-mode .theme-toggle:hover {
-  background-color: var(--boton-1);
-}
-
-/*Estilos navbar con menu desplegable*/
 .dropdown {
   position: relative;
   display: inline-block;
@@ -330,8 +202,8 @@ header {
 }
 
 .dropdown-icon {
-  width: 1em;
-  height: 1em;
+  width: 1rem;
+  height: 1rem;
   fill: currentColor;
   transition: transform 0.2s ease;
 }
@@ -411,4 +283,131 @@ header {
 
 .dark-mode .dropdown-menu {
   background-color: var(--fondo-2o);
+}
+
+/* Botón */
+.link {
+  background-color: var(--boton-1);
+  color: var(--texto-o);
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 0.33rem;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  line-height: inherit;
+}
+
+.link:hover {
+  background-color: var(--boton-2);
+}
+
+.dark-mode .link {
+  background-color: var(--boton-2);
+}
+
+.dark-mode .link:hover {
+  background-color: var(--boton-1);
+}
+
+/* Sección novelas */
+.lista-novelas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.novela-item {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 250px;
+  padding: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--fondo-2);
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.novela-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.novela-item .link {
+  text-decoration: none;
+}
+
+.dark-mode .novela-item {
+  background-color: var(--fondo-2o);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .novela-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.novela-item .portada img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.3rem;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.novela-item .centrado {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  justify-content: center;
+  width: 100%;
+}
+
+.portada {
+  margin: 0;
+  padding: 0;
+}
+
+.portada img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 0.5rem;
+}
+
+/* Botón cambiar tema */
+.theme-toggle {
+  background-color: var(--boton-1);
+  border: none;
+  border-radius: 50%;
+  width: 2.6rem;
+  height: 2.6rem;
+  font-size: clamp(1.3rem, 1.5vw + 0.5rem, 1.5rem);
+  margin: 0 auto;
+  cursor: pointer;
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 1000;
+  line-height: 1;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: var(--fondo-1);
+  color: var(--boton-1);
+}
+
+.dark-mode .theme-toggle {
+  background-color: var(--fondo-1);
+}
+
+.dark-mode .theme-toggle:hover {
+  background-color: var(--boton-1);
 }
