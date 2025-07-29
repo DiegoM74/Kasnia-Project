@@ -20,6 +20,10 @@
   transition: transform 0.2s ease;
 }
 
+.dark-mode .portada img {
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
 .portada img:hover {
   transform: scale(1.03);
 }
@@ -44,22 +48,18 @@
   hyphens: auto;
 }
 
-.dark-mode .portada img {
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
-}
-
 /* Informacion novela */
 .info-tecnica {
   margin-top: 2rem;
   width: 100%;
 }
 
-.hr {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
 .dark-mode .info-tecnica {
   border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.hr {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .fila-info {
@@ -89,7 +89,7 @@
 /* Seccion descargas */
 .grid-volumenes {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(130px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(130px, 100%), 1fr));
   gap: 1.5rem;
 }
 
@@ -97,13 +97,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.8rem;
+  gap: 1rem;
   width: 100%;
 }
 
 .portada-volumen {
   width: 100%;
-  max-width: 150px;
+  max-width: 160px;
   margin: 0 auto;
 }
 
@@ -165,6 +165,7 @@
 }
 
 .boton-descarga:hover {
+  transform: translateY(-1px);
   filter: brightness(90%);
 }
 
@@ -215,16 +216,22 @@
 }
 
 .nav-button {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 0.3rem;
   background-color: var(--link);
-  color: white;
+  color: var(--texto-o);
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 0.33rem;
+  border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-family: inherit;
+  line-height: inherit;
 }
 
-/* Estilo para el botón de sección inactiva */
+.nav-button:hover {
+  transform: translateY(-1px);
+  filter: brightness(90%);
+}
+
 .nav-button:not(.active) {
   background-color: var(--boton-1);
 }
@@ -261,28 +268,4 @@
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
-}
-
-/* Animación de los botones de navegación */
-.nav-button {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 0.3rem;
-  background-color: var(--link);
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.nav-button:hover {
-  transform: translateY(-1px);
-}
-
-/* Estilo para el botón de sección inactiva */
-.nav-button:not(.active) {
-  background-color: var(--boton-1);
-}
-
-.dark-mode .nav-button:not(.active) {
-  background-color: var(--boton-2);
 }
