@@ -169,11 +169,13 @@
   filter: brightness(90%);
 }
 
-.portada-volumen.proximamente {
+.portada-volumen.proximamente,
+.portada-volumen.traduccion {
   position: relative;
 }
 
-.portada-volumen.proximamente::after {
+.portada-volumen.proximamente::after,
+.portada-volumen.traduccion::after {
   content: "Próximamente";
   position: absolute;
   top: 0;
@@ -191,11 +193,17 @@
   pointer-events: none;
 }
 
-.portada-volumen.proximamente img {
+.portada-volumen.traduccion::after {
+  content: "En traducción";
+}
+
+.portada-volumen.proximamente img,
+.portada-volumen.traduccion img {
   pointer-events: none;
 }
 
-.volumen:hover .portada-volumen.proximamente img {
+.volumen:hover .portada-volumen.proximamente img,
+.volumen:hover .portada-volumen.traduccion img {
   transform: none;
 }
 

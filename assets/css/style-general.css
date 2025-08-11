@@ -129,11 +129,24 @@ div {
   justify-content: center;
 }
 
+.justificado p {
+  text-align: justify;
+}
+
+.izquierda {
+  text-align: left;
+  margin: 0;
+}
+
 /* Listas */
 ul,
 ol {
   list-style-position: inside;
   padding-left: 1rem;
+}
+
+li {
+  margin-top: 0.5rem;
 }
 
 /* Enlaces */
