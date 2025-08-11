@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kasnia-project.pages.dev/
