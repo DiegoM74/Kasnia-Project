@@ -1,1 +1,1 @@
-"# Nueva rama para el nuevo dise¤o" 
+# Nueva rama para el nuevo diseÃ±o
