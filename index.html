@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kasnia Project</title>
+    <script>
+      const savedTheme = localStorage.getItem("theme") || "dark";
+      document.documentElement.setAttribute("data-theme", savedTheme);
+    </script>
+    <link rel="stylesheet" href="/styles/index.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbarContainer">
+        <div class="navbarLogo">
+          <img class="logoDark" src="/img/icons/icon-dark.svg" alt="Logo" />
+          <img class="logoLight" src="/img/icons/icon-light.svg" alt="Logo" />
+        </div>
+
+        <div class="navbarRight">
+          <ul class="navbarLinks">
+            <li><a href="#novelas">Novelas</a></li>
+            <li><a href="#staff">Staff</a></li>
+            <li><a href="#donaciones">Donaciones</a></li>
+          </ul>
+
+          <button
+            class="themeToggle"
+            id="themeToggle"
+            aria-label="Cambiar tema"
+          >
+            <svg
+              class="sunIcon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <g fill="none">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M13 3a1 1 0 1 0-2 0v1a1 1 0 1 0 2 0V3zM5.707 4.293a1 1 0 0 0-1.414 1.414l1 1a1 1 0 0 0 1.414-1.414l-1-1zm14 0a1 1 0 0 0-1.414 0l-1 1a1 1 0 0 0 1.414 1.414l1-1a1 1 0 0 0 0-1.414zM12 7a5 5 0 1 0 0 10a5 5 0 0 0 0-10zm-9 4a1 1 0 1 0 0 2h1a1 1 0 1 0 0-2H3zm17 0a1 1 0 1 0 0 2h1a1 1 0 1 0 0-2h-1zM6.707 18.707a1 1 0 1 0-1.414-1.414l-1 1a1 1 0 1 0 1.414 1.414l1-1zm12-1.414a1 1 0 0 0-1.414 1.414l1 1a1 1 0 0 0 1.414-1.414l-1-1zM13 20a1 1 0 1 0-2 0v1a1 1 0 1 0 2 0v-1z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+            <svg
+              class="moonIcon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              style="display: none"
+            >
+              <path
+                fill="currentColor"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9.353 3C5.849 4.408 3 7.463 3 11.47A9.53 9.53 0 0 0 12.53 21c4.007 0 7.062-2.849 8.47-6.353C8.17 17.065 8.14 8.14 9.353 3"
+              />
+            </svg>
+          </button>
+
+          <button class="menuToggle" id="menuToggle" aria-label="Abrir menú">
+            <svg
+              class="menuIcon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 8h12M6 12h12M6 16h12"
+              />
+            </svg>
+            <svg
+              class="closeIcon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 12L7 7m5 5l5 5m-5-5l5-5m-5 5l-5 5"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Menú móvil -->
+    <div class="mobileMenu" id="mobileMenu">
+      <ul class="mobileMenuLinks">
+        <li><a href="#novelas">Novelas</a></li>
+        <li><a href="#staff">Staff</a></li>
+        <li><a href="#donaciones">Donaciones</a></li>
+      </ul>
+    </div>
+
+    <!-- Texto de prueba -->
+    <div class="content">
+      <h1>Bienvenido a Kasnia Project</h1>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae eos,
+        nulla quasi perferendis quod labore sit, repudiandae hic, officiis
+        debitis nesciunt nisi earum provident sequi explicabo? Veritatis,
+        laborum reiciendis? Fuga.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur
+        exercitationem obcaecati voluptas temporibus porro iusto eaque officiis
+        corrupti eum dolorem ad beatae asperiores nisi molestiae, consequuntur
+        enim quod illo mollitia.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quia
+        facilis modi accusamus consequatur itaque ad, voluptatibus fugit odio
+        tenetur error sint nostrum ipsam odit vel vitae asperiores, qui velit.
+      </p>
+
+      <h2>Subtitulo</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
+        alias illum architecto dignissimos similique deserunt in. Corrupti
+        aliquam molestias hic, numquam, aliquid quos delectus cupiditate quis
+        itaque dolor placeat non.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore in vero,
+        ducimus obcaecati ab ex. Impedit dolorum voluptates non facere beatae,
+        obcaecati suscipit modi consequatur quia vero, alias officiis in?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus
+        repellat fuga, laudantium perspiciatis voluptatum debitis at consectetur
+        soluta minus optio assumenda quas explicabo quod facere odit libero
+        aperiam, ipsam ut.
+      </p>
+
+      <h2>Subtitulo</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
+        alias illum architecto dignissimos similique deserunt in. Corrupti
+        aliquam molestias hic, numquam, aliquid quos delectus cupiditate quis
+        itaque dolor placeat non.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore in vero,
+        ducimus obcaecati ab ex. Impedit dolorum voluptates non facere beatae,
+        obcaecati suscipit modi consequatur quia vero, alias officiis in?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus
+        repellat fuga, laudantium perspiciatis voluptatum debitis at consectetur
+        soluta minus optio assumenda quas explicabo quod facere odit libero
+        aperiam, ipsam ut.
+      </p>
+    </div>
+
+    <script src="/js/index.js"></script>
+  </body>
+</html>
