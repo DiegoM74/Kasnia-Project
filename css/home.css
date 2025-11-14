@@ -1,0 +1,28 @@
+.content {
+  margin-top: 70px;
+  padding: 4rem 2rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content h1 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.content p {
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.content h2 {
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  text-align: center;
+}

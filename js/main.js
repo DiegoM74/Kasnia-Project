@@ -1,4 +1,4 @@
-// Modo oscuro - eliminamos la carga inicial aquí (se hace en el head)
+// Modo oscuro
 const themeToggle = document.getElementById("themeToggle");
 const html = document.documentElement;
 const sunIcon = document.querySelector(".sunIcon");
@@ -18,7 +18,7 @@ function updateThemeIcon(theme) {
   }
 }
 
-// Toggle del tema con View Transition API
+// Toggle del tema
 themeToggle.addEventListener("click", () => {
   const currentTheme = html.getAttribute("data-theme");
   const newTheme = currentTheme === "dark" ? "light" : "dark";
