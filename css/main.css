@@ -40,24 +40,26 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Navbar */
-.navbar {
+header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 70px;
+  z-index: 1000;
+}
+
+/* Navbar */
+.navbar {
   background: var(--navbar-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
-  z-index: 1000;
   transition: all 0.3s ease;
 }
 
 .navbarContainer {
   max-width: 1000px;
-  height: 100%;
+  height: 70px;
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
@@ -204,10 +206,10 @@ body {
 /* Menú móvil */
 .mobileMenu {
   position: fixed;
-  top: 0;
+  top: 70px;
   right: -100%;
   width: 100%;
-  height: 100dvh;
+  height: calc(100dvh - 70px);
   background: var(--menu-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -263,18 +265,11 @@ body {
 }
 
 /* Responsive */
-.navbarLinks {
-  display: flex;
-}
-
-.menuToggle {
-  display: none;
-}
-
 @media (max-width: 600px) {
   .navbarLinks {
     display: none;
   }
+
   .menuToggle {
     display: flex;
   }

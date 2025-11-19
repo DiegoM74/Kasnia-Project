@@ -8,61 +8,67 @@
       const savedTheme = localStorage.getItem("theme") || "dark";
       document.documentElement.setAttribute("data-theme", savedTheme);
     </script>
-    <link rel="stylesheet" href="/css/main.css" />
-    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/main.css?v=1.0" />
+    <link rel="stylesheet" href="/css/home.css?v=1.0" />
   </head>
   <body>
-    <nav class="navbar">
-      <div class="navbarContainer">
-        <div class="navbarLogo">
-          <svg class="logo" viewBox="0 0 793.4 543.8">
-            <use href="/img/icons/main.svg#logo" />
-          </svg>
+    <header>
+      <nav class="navbar" aria-label="Navegación principal">
+        <div class="navbarContainer">
+          <div class="navbarLogo">
+            <svg class="logo" viewBox="0 0 793.4 543.8">
+              <use href="/img/svg/main.svg#logo" />
+            </svg>
+          </div>
+
+          <div class="navbarRight">
+            <ul class="navbarLinks">
+              <li><a href="#novelas">Novelas</a></li>
+              <li><a href="#staff">Staff</a></li>
+              <li><a href="#donaciones">Donaciones</a></li>
+            </ul>
+
+            <button
+              class="themeToggle"
+              id="themeToggle"
+              aria-label="Cambiar tema"
+            >
+              <svg class="sunIcon">
+                <use href="/img/svg/main.svg#sunIcon" />
+              </svg>
+              <svg class="moonIcon" style="display: none">
+                <use href="/img/svg/main.svg#moonIcon" />
+              </svg>
+            </button>
+
+            <button
+              class="menuToggle"
+              id="menuToggle"
+              aria-label="Abrir menú"
+              aria-expanded="false"
+              aria-controls="mobileMenu"
+            >
+              <svg class="menuIcon">
+                <use href="/img/svg/main.svg#menuIcon" />
+              </svg>
+              <svg class="closeIcon">
+                <use href="/img/svg/main.svg#closeIcon" />
+              </svg>
+            </button>
+          </div>
         </div>
+      </nav>
 
-        <div class="navbarRight">
-          <ul class="navbarLinks">
-            <li><a href="#novelas">Novelas</a></li>
-            <li><a href="#staff">Staff</a></li>
-            <li><a href="#donaciones">Donaciones</a></li>
-          </ul>
+      <nav class="mobileMenu" id="mobileMenu" aria-label="Menú móvil">
+        <ul class="mobileMenuLinks">
+          <li><a href="#novelas">Novelas</a></li>
+          <li><a href="#staff">Staff</a></li>
+          <li><a href="#donaciones">Donaciones</a></li>
+        </ul>
+      </nav>
+    </header>
 
-          <button
-            class="themeToggle"
-            id="themeToggle"
-            aria-label="Cambiar tema"
-          >
-            <svg class="sunIcon">
-              <use href="/img/icons/main.svg#sunIcon" />
-            </svg>
-            <svg class="moonIcon" style="display: none">
-              <use href="/img/icons/main.svg#moonIcon" />
-            </svg>
-          </button>
-
-          <button class="menuToggle" id="menuToggle" aria-label="Abrir menú">
-            <svg class="menuIcon">
-              <use href="/img/icons/main.svg#menuIcon" />
-            </svg>
-            <svg class="closeIcon">
-              <use href="/img/icons/main.svg#closeIcon" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Menú móvil -->
-    <div class="mobileMenu" id="mobileMenu">
-      <ul class="mobileMenuLinks">
-        <li><a href="#novelas">Novelas</a></li>
-        <li><a href="#staff">Staff</a></li>
-        <li><a href="#donaciones">Donaciones</a></li>
-      </ul>
-    </div>
-
-    <!-- Texto de prueba -->
-    <div class="content">
+    <main class="content">
       <h1>Bienvenido a Kasnia Project</h1>
       <p>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae eos,
@@ -119,8 +125,8 @@
         soluta minus optio assumenda quas explicabo quod facere odit libero
         aperiam, ipsam ut.
       </p>
-    </div>
+    </main>
 
-    <script src="/js/main.js"></script>
+    <script src="/js/main.js?v=1.0"></script>
   </body>
 </html>
