@@ -78,19 +78,10 @@ body {
   transform: scale(1.05);
 }
 
-.logoDark,
-.logoLight {
-  display: none;
+.logo {
+  color: var(--text-primary);
   height: 100%;
   width: auto;
-}
-
-[data-theme="dark"] .logoDark {
-  display: block;
-}
-
-[data-theme="light"] .logoLight {
-  display: block;
 }
 
 .navbarRight {
