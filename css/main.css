@@ -155,6 +155,19 @@ header {
   transform: rotate(20deg);
 }
 
+[data-theme="light"] .sunIcon {
+  display: none;
+}
+[data-theme="light"] .moonIcon {
+  display: block;
+}
+[data-theme="dark"] .sunIcon {
+  display: block;
+}
+[data-theme="dark"] .moonIcon {
+  display: none;
+}
+
 /* Botón menú hamburguesa */
 .menuToggle {
   background: none;
