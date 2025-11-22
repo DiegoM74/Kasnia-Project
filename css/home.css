@@ -1,28 +1,284 @@
-main {
-  margin-top: 70px;
+/* Reset y layout base para el home */
+.homeMain {
+  margin-top: 70px; /* Espacio para la navbar fija */
   padding: 4rem 2rem;
-  max-width: 1000px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem; /* Espaciado vertical grande entre secciones */
 }
 
-main h1 {
-  font-size: 2.2rem;
-  margin-bottom: 2rem;
-  color: var(--text-primary);
+/* --- Hero Section --- */
+.heroSection {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.8s ease-out;
 }
 
-main p {
-  margin-bottom: 1.5rem;
+.heroTitle {
+  font-size: clamp(2.5rem, 5vw, 4rem); /* Responsive fluido sin media queries */
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  background: linear-gradient(45deg, var(--text-primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
   color: var(--text-secondary);
+  max-width: 600px;
+  margin-bottom: 3rem;
+}
+
+.heroStats {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  background: var(--bg-secondary);
+  padding: 1.5rem 3rem;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statNumber {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.statDivider {
+  width: 1px;
+  height: 40px;
+  background-color: var(--border);
+}
+
+/* --- Recruitment Banner --- */
+.recruitmentBanner {
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(255, 154, 197, 0.05) 100%);
+  border: 1px solid var(--accent);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.recruitmentBanner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--accent);
+}
+
+.bannerTitle {
+  color: var(--accent);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.bannerText {
+  color: var(--text-primary);
   font-size: 1.1rem;
 }
 
-main h2 {
-  margin-bottom: 1.5rem;
-  margin-top: 2rem;
-  font-size: 1.8rem;
+.highlightLink {
   color: var(--text-primary);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 1px;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.highlightLink:hover {
+  color: var(--accent);
+  gap: 6px;
+}
+
+/* --- Featured Novels (Grid) --- */
+.featuredSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.sectionHeader {
   text-align: center;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.sectionDescription {
+  color: var(--text-secondary);
+}
+
+/* Grid Responsive sin Media Queries */
+.novelsGrid {
+  display: grid;
+  /* Esto crea columnas que se ajustan auto. min 280px. Si hay espacio, caben 3, si no, bajan. */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.novelCard {
+  display: block;
+  text-decoration: none;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--border);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  background: var(--bg-secondary);
+  aspect-ratio: 2/3; /* Mantiene la proporción de portada típica */
+}
+
+.novelCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border-color: var(--accent);
+}
+
+.novelCoverContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.novelCover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Efecto hover moderno */
+.hoverOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hoverOverlay span {
+  color: #fff;
+  font-weight: 700;
+  border: 2px solid #fff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  transform: translateY(10px);
+  transition: transform 0.3s ease;
+}
+
+.novelCard:hover .hoverOverlay {
+  opacity: 1;
+}
+
+.novelCard:hover .hoverOverlay span {
+  transform: translateY(0);
+}
+
+.viewMoreWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* --- Staff & Donations --- */
+.communitySection {
+  background: var(--bg-secondary);
+  padding: 4rem 2rem;
+  border-radius: 24px;
+  text-align: center;
+}
+
+.communityText {
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 1rem auto 2.5rem;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap; /* Por si la pantalla es muy pequeña */
+}
+
+/* --- Botones Generales --- */
+.btnPrimary, .btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btnPrimary {
+  background-color: var(--accent);
+  color: #0f0f0f; /* Texto oscuro para contraste con el acento */
+}
+
+.btnPrimary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--accent);
+}
+
+.btnSecondary {
+  background-color: transparent;
+  border: 2px solid var(--border);
+  color: var(--text-primary);
+}
+
+.btnSecondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }

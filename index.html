@@ -6,7 +6,7 @@
     <title>Kasnia Project</title>
     <link rel="stylesheet" href="/css/main.css?v=1.1" />
     <link rel="stylesheet" href="/css/home.css?v=1.1" />
-    <script src="/js/theme.js?v=1.0"></script>
+    <script src="/js/theme.js?v=1.1"></script>
   </head>
   <body>
     <header>
@@ -20,9 +20,9 @@
 
           <div class="navbarRight">
             <ul class="navbarLinks">
-              <li><a href="#novelas">Novelas</a></li>
-              <li><a href="#staff">Staff</a></li>
-              <li><a href="#donaciones">Donaciones</a></li>
+              <li><a href="/novelas">Novelas</a></li>
+              <li><a href="/staff">Staff</a></li>
+              <li><a href="/donaciones">Donaciones</a></li>
             </ul>
 
             <button
@@ -58,70 +58,181 @@
 
       <nav class="mobileMenu" id="mobileMenu" aria-label="Menú móvil">
         <ul class="mobileMenuLinks">
-          <li><a href="#novelas">Novelas</a></li>
-          <li><a href="#staff">Staff</a></li>
-          <li><a href="#donaciones">Donaciones</a></li>
+          <li><a href="/novelas">Novelas</a></li>
+          <li><a href="/staff">Staff</a></li>
+          <li><a href="/donaciones">Donaciones</a></li>
         </ul>
       </nav>
     </header>
 
-    <main>
-      <h1>Bienvenido a Kasnia Project</h1>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae eos,
-        nulla quasi perferendis quod labore sit, repudiandae hic, officiis
-        debitis nesciunt nisi earum provident sequi explicabo? Veritatis,
-        laborum reiciendis? Fuga.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur
-        exercitationem obcaecati voluptas temporibus porro iusto eaque officiis
-        corrupti eum dolorem ad beatae asperiores nisi molestiae, consequuntur
-        enim quod illo mollitia.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quia
-        facilis modi accusamus consequatur itaque ad, voluptatibus fugit odio
-        tenetur error sint nostrum ipsam odit vel vitae asperiores, qui velit.
-      </p>
+    <main class="homeMain">
+      <!-- Hero Section -->
+      <section class="heroSection">
+        <h1 class="heroTitle">¡Bienvenido a Kasnia Project!</h1>
+        <p class="heroSubtitle">
+          Somos un grupo dedicado a traducir novelas ligeras al español. Nos
+          enfocamos en hacer un trabajo de calidad.
+        </p>
 
-      <h2>Subtitulo</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
-        alias illum architecto dignissimos similique deserunt in. Corrupti
-        aliquam molestias hic, numquam, aliquid quos delectus cupiditate quis
-        itaque dolor placeat non.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore in vero,
-        ducimus obcaecati ab ex. Impedit dolorum voluptates non facere beatae,
-        obcaecati suscipit modi consequatur quia vero, alias officiis in?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus
-        repellat fuga, laudantium perspiciatis voluptatum debitis at consectetur
-        soluta minus optio assumenda quas explicabo quod facere odit libero
-        aperiam, ipsam ut.
-      </p>
+        <div class="heroStats">
+          <div class="statItem">
+            <span class="statNumber">+1</span>
+            <span class="statLabel">año lanzando contenido de calidad</span>
+          </div>
+          <div class="statDivider"></div>
+          <div class="statItem">
+            <span class="statNumber">+15</span>
+            <span class="statLabel">volúmenes lanzados</span>
+          </div>
+        </div>
+      </section>
 
-      <h2>Subtitulo</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
-        alias illum architecto dignissimos similique deserunt in. Corrupti
-        aliquam molestias hic, numquam, aliquid quos delectus cupiditate quis
-        itaque dolor placeat non.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore in vero,
-        ducimus obcaecati ab ex. Impedit dolorum voluptates non facere beatae,
-        obcaecati suscipit modi consequatur quia vero, alias officiis in?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus
-        repellat fuga, laudantium perspiciatis voluptatum debitis at consectetur
-        soluta minus optio assumenda quas explicabo quod facere odit libero
-        aperiam, ipsam ut.
-      </p>
+      <!-- Recruitment Notice -->
+      <section class="recruitmentBanner">
+        <div class="bannerContent">
+          <h2 class="bannerTitle">Aviso Importante</h2>
+          <p class="bannerText">
+            Estamos reclutando gente que quiera ayudar al grupo. Si estás
+            interesado, contáctanos en
+            <a
+              href="https://facebook.com/LINK_AQUI"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="highlightLink"
+            >
+              nuestro Facebook
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="iconExternal"
+              >
+                <path
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg> </a
+            >.
+          </p>
+        </div>
+      </section>
+
+      <!-- Featured Novels -->
+      <section class="featuredSection">
+        <div class="sectionHeader">
+          <h2 class="sectionTitle">Novelas Destacadas</h2>
+          <p class="sectionDescription">
+            ¿No sabes qué leer? Mira nuestras novelas más populares.
+          </p>
+        </div>
+
+        <div class="novelsGrid">
+          <!-- Novela 1 -->
+          <a href="/novelas/beast-tamer" class="novelCard">
+            <div class="novelCoverContainer">
+              <picture>
+                <source
+                  srcset="/img/beast-tamer/avif/v01.avif"
+                  type="image/avif"
+                />
+                <img
+                  src="/img/beast-tamer/jpg/v01.jpg"
+                  alt="Portada Beast Tamer"
+                  class="novelCover"
+                  style="view-transition-name: beast-tamer"
+                />
+              </picture>
+              <div class="hoverOverlay">
+                <span>Leer Ahora</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Novela 2 -->
+          <a href="/novelas/novela" class="novelCard">
+            <div class="novelCoverContainer">
+              <picture>
+                <source
+                  srcset="/img/seirei-gensouki/avif/v25.avif"
+                  type="image/avif"
+                />
+                <img
+                  src="/img/seirei-gensouki/jpg/v25.jpg"
+                  alt="Portada Seirei Gensouki"
+                  class="novelCover"
+                  style="view-transition-name: seirei-gensouki"
+                />
+              </picture>
+              <div class="hoverOverlay">
+                <span>Leer Ahora</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Novela 3 -->
+          <a href="/novelas/novela" class="novelCard">
+            <div class="novelCoverContainer">
+              <picture>
+                <source
+                  srcset="/img/dragon-chain/avif/v01.avif"
+                  type="image/avif"
+                />
+                <img
+                  src="/img/dragon-chain/jpg/v01.jpg"
+                  alt="Portada Dragon Chain"
+                  class="novelCover"
+                  style="view-transition-name: dragon-chain"
+                />
+              </picture>
+              <div class="hoverOverlay">
+                <span>Leer Ahora</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="viewMoreWrapper">
+          <a href="/novelas" class="btnPrimary">
+            Ver todas las novelas
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- Staff & Donations -->
+      <section class="communitySection">
+        <div class="communityContent">
+          <h2 class="sectionTitle">Staff y Donaciones</h2>
+          <p class="communityText">
+            Conoce al increíble equipo que hace posible estas traducciones o
+            considera apoyar nuestro trabajo con una donación.
+          </p>
+          <div class="actionButtons">
+            <a href="/staff" class="btnSecondary">Conoce al Staff</a>
+            <a href="/donaciones" class="btnSecondary">Donaciones</a>
+          </div>
+        </div>
+      </section>
     </main>
 
     <script src="/js/main.js?v=1.1"></script>
