@@ -1,16 +1,26 @@
-/* Reset y layout base para el home */
 .homeMain {
-  margin-top: 70px; /* Espacio para la navbar fija */
-  padding: 4rem 2rem;
+  margin-top: 70px;
+  padding: 3rem 1.5rem;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   flex-direction: column;
-  gap: 6rem; /* Espaciado vertical grande entre secciones */
+  gap: 6rem;
+  position: relative;
+  z-index: 1;
 }
 
-/* --- Hero Section --- */
+[data-theme="dark"] .homeMain {
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="light"] .homeMain {
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
 .heroSection {
   text-align: center;
   display: flex;
@@ -20,18 +30,18 @@
 }
 
 .heroTitle {
-  font-size: clamp(2.5rem, 5vw, 4rem); /* Responsive fluido sin media queries */
+  font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 800;
   color: var(--text-primary);
   margin-bottom: 1rem;
   line-height: 1.1;
   background: linear-gradient(45deg, var(--text-primary), var(--accent));
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .heroSubtitle {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--text-secondary);
   max-width: 600px;
   margin-bottom: 3rem;
@@ -39,91 +49,96 @@
 
 .heroStats {
   display: flex;
-  gap: 3rem;
-  align-items: center;
-  background: var(--bg-secondary);
-  padding: 1.5rem 3rem;
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.statItem {
+.statCard {
+  background: var(--bg-secondary);
+  padding: 1.5rem 2.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 180px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
 }
 
 .statNumber {
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 2.2rem;
+  font-weight: 800;
   color: var(--accent);
+  line-height: 1;
+  margin-bottom: 0.5rem;
 }
 
 .statLabel {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-weight: 500;
-}
-
-.statDivider {
-  width: 1px;
-  height: 40px;
-  background-color: var(--border);
-}
-
-/* --- Recruitment Banner --- */
-.recruitmentBanner {
-  background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(255, 154, 197, 0.05) 100%);
-  border: 1px solid var(--accent);
-  border-radius: 16px;
-  padding: 2rem;
+  font-weight: 600;
   text-align: center;
-  position: relative;
-  overflow: hidden;
 }
 
-.recruitmentBanner::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: var(--accent);
+.recruitmentBanner {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 154, 197, 0.03) 0%,
+    var(--bg-secondary) 100%
+  );
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-card);
 }
 
 .bannerTitle {
   color: var(--accent);
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-bottom: 0.5rem;
+  font-weight: 700;
 }
 
 .bannerText {
   color: var(--text-primary);
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .highlightLink {
   color: var(--text-primary);
   font-weight: 700;
   text-decoration: none;
-  border-bottom: 2px solid var(--accent);
-  padding-bottom: 1px;
-  transition: all 0.2s ease;
+  border-bottom: 1px solid var(--accent);
+  transition: color 0.2s ease;
   display: inline-flex;
   align-items: center;
   gap: 4px;
+  white-space: nowrap;
 }
 
 .highlightLink:hover {
   color: var(--accent);
-  gap: 6px;
 }
 
-/* --- Featured Novels (Grid) --- */
+.iconExternal {
+  width: 14px;
+  height: 14px;
+}
+
 .featuredSection {
   display: flex;
   flex-direction: column;
@@ -135,7 +150,7 @@
 }
 
 .sectionTitle {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
@@ -144,11 +159,11 @@
   color: var(--text-secondary);
 }
 
-/* Grid Responsive sin Media Queries */
 .novelsGrid {
   display: grid;
-  /* Esto crea columnas que se ajustan auto. min 280px. Si hay espacio, caben 3, si no, bajan. */
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  max-width: 900px;
+  margin: 0 auto;
   gap: 2rem;
   width: 100%;
 }
@@ -156,18 +171,22 @@
 .novelCard {
   display: block;
   text-decoration: none;
-  border-radius: 16px;
+  border-radius: 12px;
   overflow: hidden;
+  contain: paint;
   position: relative;
   border: 1px solid var(--border);
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
   background: var(--bg-secondary);
-  aspect-ratio: 2/3; /* Mantiene la proporción de portada típica */
+  aspect-ratio: 52 / 75;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow-card);
+  z-index: 1;
+  isolation: isolate;
 }
 
 .novelCard:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
   border-color: var(--accent);
 }
 
@@ -184,35 +203,28 @@
   display: block;
 }
 
-/* Efecto hover moderno */
 .hoverOverlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(2px);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.2s ease;
 }
 
 .hoverOverlay span {
   color: #fff;
   font-weight: 700;
   border: 2px solid #fff;
-  padding: 0.5rem 1.5rem;
+  padding: 0.4rem 1.2rem;
   border-radius: 50px;
-  transform: translateY(10px);
-  transition: transform 0.3s ease;
 }
 
 .novelCard:hover .hoverOverlay {
   opacity: 1;
-}
-
-.novelCard:hover .hoverOverlay span {
-  transform: translateY(0);
 }
 
 .viewMoreWrapper {
@@ -221,64 +233,132 @@
   margin-top: 1rem;
 }
 
-/* --- Staff & Donations --- */
 .communitySection {
-  background: var(--bg-secondary);
-  padding: 4rem 2rem;
-  border-radius: 24px;
-  text-align: center;
-}
-
-.communityText {
-  color: var(--text-secondary);
-  max-width: 600px;
-  margin: 1rem auto 2.5rem;
-}
-
-.actionButtons {
   display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  flex-wrap: wrap; /* Por si la pantalla es muy pequeña */
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
-/* --- Botones Generales --- */
-.btnPrimary, .btnSecondary {
+.communityGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+.actionCard {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.actionCard:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+.actionCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--card-border);
+  transition: background 0.3s ease;
+}
+
+.actionCard:hover::before {
+  background: var(--accent);
+}
+
+.cardIcon {
+  background: rgba(255, 154, 197, 0.1);
+  color: var(--accent);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.cardIcon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.cardTitle {
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.cardText {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.btnCard {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  background: transparent;
+  border: 2px solid var(--card-border);
+  color: var(--text-primary);
+}
+
+.btnCard:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.btnPrimary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.8rem 2rem;
+  padding: 0.7rem 1.8rem;
   border-radius: 50px;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.2s ease;
+  background-color: var(--accent);
+  color: #ffffff;
 }
 
-.btnPrimary {
-  background-color: var(--accent);
-  color: #0f0f0f; /* Texto oscuro para contraste con el acento */
+.btnPrimary svg {
+  width: 20px;
+  height: 20px;
 }
 
 .btnPrimary:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px var(--accent);
+  transform: scale(1.03);
 }
 
-.btnSecondary {
-  background-color: transparent;
-  border: 2px solid var(--border);
-  color: var(--text-primary);
-}
-
-.btnSecondary:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: rgba(255, 255, 255, 0.03);
-}
-
-/* Animaciones */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

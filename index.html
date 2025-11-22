@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kasnia Project</title>
-    <link rel="stylesheet" href="/css/main.css?v=1.1" />
-    <link rel="stylesheet" href="/css/home.css?v=1.1" />
+    <link rel="stylesheet" href="/css/main.css?v=1.2" />
+    <link rel="stylesheet" href="/css/home.css?v=1.2" />
     <script src="/js/theme.js?v=1.1"></script>
   </head>
   <body>
@@ -66,7 +66,6 @@
     </header>
 
     <main class="homeMain">
-      <!-- Hero Section -->
       <section class="heroSection">
         <h1 class="heroTitle">¡Bienvenido a Kasnia Project!</h1>
         <p class="heroSubtitle">
@@ -75,19 +74,17 @@
         </p>
 
         <div class="heroStats">
-          <div class="statItem">
+          <div class="statCard">
             <span class="statNumber">+1</span>
-            <span class="statLabel">año lanzando contenido de calidad</span>
+            <span class="statLabel">año de trayectoria</span>
           </div>
-          <div class="statDivider"></div>
-          <div class="statItem">
+          <div class="statCard">
             <span class="statNumber">+15</span>
             <span class="statLabel">volúmenes lanzados</span>
           </div>
         </div>
       </section>
 
-      <!-- Recruitment Notice -->
       <section class="recruitmentBanner">
         <div class="bannerContent">
           <h2 class="bannerTitle">Aviso Importante</h2>
@@ -95,36 +92,20 @@
             Estamos reclutando gente que quiera ayudar al grupo. Si estás
             interesado, contáctanos en
             <a
-              href="https://facebook.com/LINK_AQUI"
+              href="https://www.facebook.com/profile.php?id=61569583498113"
               target="_blank"
               rel="noopener noreferrer"
               class="highlightLink"
             >
               nuestro Facebook
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="iconExternal"
-              >
-                <path
-                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
-                />
-                <polyline points="15 3 21 3 21 9" />
-                <line x1="10" y1="14" x2="21" y2="3" />
+              <svg class="iconExternal">
+                <use href="/img/svg/home.svg#iconExternal" />
               </svg> </a
             >.
           </p>
         </div>
       </section>
 
-      <!-- Featured Novels -->
       <section class="featuredSection">
         <div class="sectionHeader">
           <h2 class="sectionTitle">Novelas Destacadas</h2>
@@ -132,10 +113,12 @@
             ¿No sabes qué leer? Mira nuestras novelas más populares.
           </p>
         </div>
-
         <div class="novelsGrid">
-          <!-- Novela 1 -->
-          <a href="/novelas/beast-tamer" class="novelCard">
+          <a
+            href="/novelas/beast-tamer"
+            class="novelCard"
+            style="view-transition-name: beast-tamer"
+          >
             <div class="novelCoverContainer">
               <picture>
                 <source
@@ -146,7 +129,6 @@
                   src="/img/beast-tamer/jpg/v01.jpg"
                   alt="Portada Beast Tamer"
                   class="novelCover"
-                  style="view-transition-name: beast-tamer"
                 />
               </picture>
               <div class="hoverOverlay">
@@ -155,8 +137,11 @@
             </div>
           </a>
 
-          <!-- Novela 2 -->
-          <a href="/novelas/novela" class="novelCard">
+          <a
+            href="/novelas/novela"
+            class="novelCard"
+            style="view-transition-name: seirei-gensouki"
+          >
             <div class="novelCoverContainer">
               <picture>
                 <source
@@ -167,7 +152,6 @@
                   src="/img/seirei-gensouki/jpg/v25.jpg"
                   alt="Portada Seirei Gensouki"
                   class="novelCover"
-                  style="view-transition-name: seirei-gensouki"
                 />
               </picture>
               <div class="hoverOverlay">
@@ -176,8 +160,11 @@
             </div>
           </a>
 
-          <!-- Novela 3 -->
-          <a href="/novelas/novela" class="novelCard">
+          <a
+            href="/novelas/novela"
+            class="novelCard"
+            style="view-transition-name: dragon-chain"
+          >
             <div class="novelCoverContainer">
               <picture>
                 <source
@@ -188,7 +175,6 @@
                   src="/img/dragon-chain/jpg/v01.jpg"
                   alt="Portada Dragon Chain"
                   class="novelCover"
-                  style="view-transition-name: dragon-chain"
                 />
               </picture>
               <div class="hoverOverlay">
@@ -201,35 +187,46 @@
         <div class="viewMoreWrapper">
           <a href="/novelas" class="btnPrimary">
             Ver todas las novelas
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
+            <svg>
+              <use href="/img/svg/home.svg#arrowRight" />
             </svg>
           </a>
         </div>
       </section>
 
-      <!-- Staff & Donations -->
       <section class="communitySection">
-        <div class="communityContent">
-          <h2 class="sectionTitle">Staff y Donaciones</h2>
-          <p class="communityText">
-            Conoce al increíble equipo que hace posible estas traducciones o
-            considera apoyar nuestro trabajo con una donación.
-          </p>
-          <div class="actionButtons">
-            <a href="/staff" class="btnSecondary">Conoce al Staff</a>
-            <a href="/donaciones" class="btnSecondary">Donaciones</a>
+        <h2 class="sectionTitle">Comunidad y Apoyo</h2>
+
+        <div class="communityGrid">
+          <div class="actionCard staffCard">
+            <div class="cardIcon">
+              <svg>
+                <use href="/img/svg/home.svg#staffIcon" />
+              </svg>
+            </div>
+            <div class="cardContent">
+              <h3 class="cardTitle">Nuestro Equipo</h3>
+              <p class="cardText">
+                Conoce a los traductores y editores que hacen posible este
+                proyecto.
+              </p>
+              <a href="/staff" class="btnCard"> Conocer Staff </a>
+            </div>
+          </div>
+
+          <div class="actionCard donationCard">
+            <div class="cardIcon">
+              <svg>
+                <use href="/img/svg/home.svg#donationIcon" />
+              </svg>
+            </div>
+            <div class="cardContent">
+              <h3 class="cardTitle">Donaciones</h3>
+              <p class="cardText">
+                Tu apoyo nos ayuda a mantener el servidor y traer más contenido.
+              </p>
+              <a href="/donaciones" class="btnCard"> Hacer una donación </a>
+            </div>
           </div>
         </div>
       </section>
