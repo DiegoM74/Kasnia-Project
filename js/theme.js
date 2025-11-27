@@ -20,7 +20,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // View Transition API
       if (document.startViewTransition) {
-        document.startViewTransition(updateTheme);
+        // Guardar y remover temporalmente los view-transition-name de las portadas
+        const elementsWithTransition = document.querySelectorAll(
+          '[style*="view-transition-name"]'
+        );
+        const savedStyles = new Map();
+
+        elementsWithTransition.forEach((el) => {
+          savedStyles.set(el, el.getAttribute("style"));
+          const newStyle = el
+            .getAttribute("style")
+            .replace(/view-transition-name:\s*[^;]+;?/g, "")
+            .trim();
+          if (newStyle) {
+            el.setAttribute("style", newStyle);
+          } else {
+            el.removeAttribute("style");
+          }
+        });
+
+        const transition = document.startViewTransition(updateTheme);
+
+        // Restaurar los view-transition-name después de la transición
+        transition.finished.finally(() => {
+          elementsWithTransition.forEach((el) => {
+            const savedStyle = savedStyles.get(el);
+            if (savedStyle) {
+              el.setAttribute("style", savedStyle);
+            }
+          });
+        });
       } else {
         updateTheme();
       }
