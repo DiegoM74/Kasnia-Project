@@ -325,6 +325,7 @@
 }
 
 .btnCard:hover {
+  color: #fff;
   background: var(--accent);
   border-color: var(--accent);
 }

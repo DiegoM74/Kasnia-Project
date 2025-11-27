@@ -33,3 +33,25 @@ if (menuToggle && mobileMenu) {
     }
   });
 }
+
+// Botón Volver Arriba
+const backToTopBtn = document.getElementById("backToTop");
+
+if (backToTopBtn) {
+  const toggleBackToTop = () => {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add("visible");
+    } else {
+      backToTopBtn.classList.remove("visible");
+    }
+  };
+
+  window.addEventListener("scroll", toggleBackToTop);
+
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+}

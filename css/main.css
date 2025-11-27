@@ -286,3 +286,55 @@ header {
     display: flex;
   }
 }
+
+/* Botón Volver Arriba */
+.backToTopContainer {
+  position: fixed;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  pointer-events: none;
+  z-index: 900;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.backToTop {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.backToTop.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.backToTop:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.backToTop svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2px;
+}
