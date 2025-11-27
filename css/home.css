@@ -1,7 +1,7 @@
-.homeMain {
+main {
   margin-top: 70px;
   padding: 3rem 1.5rem;
-  max-width: 1200px;
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -11,12 +11,12 @@
   z-index: 1;
 }
 
-[data-theme="dark"] .homeMain {
+[data-theme="dark"] main {
   --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
   --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.7);
 }
 
-[data-theme="light"] .homeMain {
+[data-theme="light"] main {
   --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.08);
   --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
@@ -173,7 +173,6 @@
   text-decoration: none;
   border-radius: 12px;
   overflow: hidden;
-  contain: paint;
   position: relative;
   border: 1px solid var(--border);
   background: var(--bg-secondary);
@@ -181,7 +180,6 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: var(--shadow-card);
   z-index: 1;
-  isolation: isolate;
 }
 
 .novelCard:hover {
@@ -341,7 +339,7 @@
   text-decoration: none;
   transition: all 0.2s ease;
   background-color: var(--accent);
-  color: #ffffff;
+  color: #fff;
 }
 
 .btnPrimary svg {
