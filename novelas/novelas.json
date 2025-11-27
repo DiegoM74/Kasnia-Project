@@ -1,0 +1,29 @@
+[
+  {
+    "id": "01",
+    "nameJp": "Seirei Gensouki",
+    "nameEn": "Spirit Chronicles",
+    "nameEs": "Crónicas de los espíritus",
+    "shortName": "",
+    "genres": ["Acción", "Aventura", "Drama", "Fantasía", "Romance"],
+    "link": "seirei-gensouki"
+  },
+  {
+    "id": "02",
+    "nameJp": "Yuusha Party wo Tsuihou sareta Beast Tamer, Saikyoushu no Nekomimi Shoujo to Deau",
+    "nameEn": "The Beast Tamer Who Was Exiled from His Party Meets a Cat Girl From the Strongest Race",
+    "nameEs": "El domador de bestias que fue exiliado de su grupo conoce a una chica gato de la raza más fuerte",
+    "shortName": "Beast Tamer",
+    "genres": ["Acción", "Aventura", "Comedia", "Drama", "Erótico", "Fantasía", "Romance", "Sobrenatural"],
+    "link": "beast-tamer"
+  },
+  {
+    "id": "03",
+    "nameJp": "Dragon Chain Ori -Spirit in the “Heart”",
+    "nameEn": "Ori of the Dragon Chain - “Heart” in the Mind",
+    "nameEs": "",
+    "shortName": "Dragon Chain",
+    "genres": ["Acción", "Aventura", "Drama", "Escolar", "Fantasía", "Romance"],
+    "link": "dragon-chain"
+  }
+]

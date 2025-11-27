@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kasnia Project</title>
+    <title>Novelas ─ Kasnia Project</title>
     <link rel="stylesheet" href="/css/main.css?v=1.3" />
-    <link rel="stylesheet" href="/css/home.css?v=1.3" />
+    <link rel="stylesheet" href="/css/novelas.css?v=1.0" />
     <script src="/js/theme.js?v=1.1"></script>
 
     <link rel="icon" href="/img/icon/favicon.ico" type="image/x-icon" />
@@ -30,18 +30,18 @@
       property="og:description"
       content="Somos un grupo dedicado a traducir novelas ligeras al español. Nos enfocamos en hacer un trabajo de calidad."
     />
-    <meta property="og:title" content="Kasnia Project" />
+    <meta property="og:title" content="Novelas ─ Kasnia Project" />
     <meta property="og:image" content="/img/icon/imagen-og.jpg" />
-    <meta property="og:url" content="https://kasniaproject.us.kg" />
+    <meta property="og:url" content="https://kasniaproject.us.kg/novelas" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Kasnia Project" />
+    <meta name="twitter:title" content="Novelas ─ Kasnia Project" />
     <meta
       name="twitter:description"
       content="Grupo de traducción de novelas ligeras del inglés al español."
     />
     <meta name="twitter:image" content="/img/icon/imagen-og.jpg" />
-    <link rel="canonical" href="https://kasniaproject.us.kg" />
+    <link rel="canonical" href="https://kasniaproject.us.kg/novelas" />
   </head>
   <body>
     <header>
@@ -101,154 +101,90 @@
     </header>
 
     <main>
-      <section class="heroSection">
-        <h1 class="heroTitle">¡Bienvenido a Kasnia Project!</h1>
-        <p class="heroSubtitle">
-          Somos un grupo dedicado a traducir novelas ligeras al español. Nos
-          enfocamos en hacer un trabajo de calidad.
+      <section class="novelsPageHeader">
+        <h1 class="pageTitle">Catálogo de Novelas</h1>
+        <p class="pageDescription">
+          Explora nuestro catálogo completo de novelas ligeras traducidas al
+          español.
         </p>
-
-        <div class="heroStats">
-          <div class="statCard">
-            <span class="statNumber">+1</span>
-            <span class="statLabel">año de trayectoria</span>
-          </div>
-          <div class="statCard">
-            <span class="statNumber">+20</span>
-            <span class="statLabel">volúmenes lanzados</span>
-          </div>
-        </div>
       </section>
 
-      <section class="recruitmentBanner">
-        <div class="bannerContent">
-          <h2 class="bannerTitle">Aviso Importante</h2>
-          <p class="bannerText">
-            Estamos reclutando gente que quiera ayudar al grupo. Si estás
-            interesado, contáctanos en
-            <a
-              href="https://www.facebook.com/profile.php?id=61569583498113"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="highlightLink"
-            >
-              nuestro Facebook
-              <svg class="iconExternal">
-                <use href="/img/svg/home.svg#iconExternal" />
-              </svg> </a
-            >.
-          </p>
-        </div>
-      </section>
-
-      <section class="featuredSection">
-        <div class="sectionHeader">
-          <h2 class="sectionTitle">Novelas Destacadas</h2>
-          <p class="sectionDescription">
-            ¿No sabes qué leer? Mira nuestras novelas más populares.
-          </p>
-        </div>
-        <div class="novelsGrid">
-          <a
-            href="/novelas/novela"
-            class="novelCard"
-            style="view-transition-name: 01"
-          >
-            <div class="novelCoverContainer">
-              <picture>
-                <source srcset="/img/cover/avif/01.avif" type="image/avif" />
-                <img
-                  src="/img/cover/jpg/01.jpg"
-                  alt="Portada Seirei Gensouki"
-                  class="novelCover"
-                />
-              </picture>
-              <div class="hoverOverlay">
-                <span>Leer Ahora</span>
-              </div>
-            </div>
-          </a>
-          <a
-            href="/novelas/beast-tamer"
-            class="novelCard"
-            style="view-transition-name: 02"
-          >
-            <div class="novelCoverContainer">
-              <picture>
-                <source srcset="/img/cover/avif/02.avif" type="image/avif" />
-                <img
-                  src="/img/cover/jpg/02.jpg"
-                  alt="Portada Yuusha Party wo Tsuihou sareta Beast Tamer, Saikyoushu no Nekomimi Shoujo to Deau"
-                  class="novelCover"
-                />
-              </picture>
-              <div class="hoverOverlay">
-                <span>Leer Ahora</span>
-              </div>
-            </div>
-          </a>
-          <a
-            href="/novelas/novela"
-            class="novelCard"
-            style="view-transition-name: 03"
-          >
-            <div class="novelCoverContainer">
-              <picture>
-                <source srcset="/img/cover/avif/03.avif" type="image/avif" />
-                <img
-                  src="/img/cover/jpg/03.jpg"
-                  alt="Portada Dragon Chain Ori -Spirit in the “Heart”"
-                  class="novelCover"
-                />
-              </picture>
-              <div class="hoverOverlay">
-                <span>Leer Ahora</span>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <div class="viewMoreWrapper">
-          <a href="/novelas" class="btnPrimary">
-            Ver todas las novelas
-            <svg>
-              <use href="/img/svg/home.svg#arrowRight" />
+      <section class="searchSection">
+        <div class="searchContainer">
+          <div class="searchInputWrapper">
+            <svg class="searchIcon">
+              <use href="/img/svg/novelas.svg#searchIcon" />
             </svg>
-          </a>
+            <input
+              type="text"
+              id="searchInput"
+              class="searchInput"
+              placeholder="Buscar por título..."
+              aria-label="Buscar novelas por título"
+            />
+          </div>
+
+          <button
+            id="filterToggle"
+            class="filterToggleBtn"
+            aria-label="Abrir filtros de género"
+            aria-expanded="false"
+          >
+            <svg>
+              <use href="/img/svg/novelas.svg#filterIcon" />
+            </svg>
+          </button>
+        </div>
+
+        <div id="genreFilters" class="genreFiltersContainer">
+          <div class="genreFiltersWrapper">
+            <div id="genreList" class="genreList"></div>
+          </div>
         </div>
       </section>
 
-      <section class="communitySection">
-        <h2 class="sectionTitle">Comunidad y Apoyo</h2>
+      <section class="novelsDisplaySection">
+        <div id="novelsGrid" class="novelsGrid"></div>
 
-        <div class="communityGrid">
-          <div class="actionCard staffCard">
-            <div class="cardIcon">
-              <svg>
-                <use href="/img/svg/home.svg#staffIcon" />
-              </svg>
-            </div>
-            <div class="cardContent">
-              <h3 class="cardTitle">Nuestro Equipo</h3>
-              <p class="cardText">
-                Conoce a los traductores y correctores que hacen posible este
-                proyecto.
-              </p>
-              <a href="/staff" class="btnCard"> Conocer Staff </a>
-            </div>
+        <div
+          id="noResultsMessage"
+          class="noResultsMessage"
+          style="display: none"
+        >
+          <svg class="noResultsIcon">
+            <use href="/img/svg/novelas.svg#noResultsIcon" />
+          </svg>
+          <h2>No se encontraron novelas</h2>
+          <p>Intenta con otros términos de búsqueda o filtros.</p>
+        </div>
+
+        <div
+          id="paginationBottom"
+          class="paginationControls"
+          style="display: none"
+        >
+          <div class="paginationLeft">
+            <select id="itemsPerPage" class="itemsPerPageSelect">
+              <option value="10">Mostrar 10</option>
+              <option value="all">Mostrar todas</option>
+            </select>
           </div>
-
-          <div class="actionCard donationCard">
-            <div class="cardIcon">
-              <svg>
-                <use href="/img/svg/home.svg#donationIcon" />
-              </svg>
-            </div>
-            <div class="cardContent">
-              <h3 class="cardTitle">Donaciones</h3>
-              <p class="cardText">Tu apoyo nos ayuda a traer más contenido.</p>
-              <a href="/donaciones" class="btnCard"> Hacer una donación </a>
-            </div>
+          <div class="paginationRight">
+            <button
+              id="prevPageBottom"
+              class="paginationBtn"
+              aria-label="Anterior"
+            >
+              <svg><use href="/img/svg/novelas.svg#arrowLeft" /></svg>
+            </button>
+            <span id="pageInfoBottom" class="pageInfo">Página 1 de 1</span>
+            <button
+              id="nextPageBottom"
+              class="paginationBtn"
+              aria-label="Siguiente"
+            >
+              <svg><use href="/img/svg/novelas.svg#arrowRight" /></svg>
+            </button>
           </div>
         </div>
       </section>
@@ -323,5 +259,6 @@
     </div>
 
     <script src="/js/main.js?v=1.2.1"></script>
+    <script src="/js/novelas.js?v=1.0"></script>
   </body>
 </html>

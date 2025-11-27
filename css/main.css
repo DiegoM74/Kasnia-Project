@@ -72,6 +72,7 @@ header {
   align-items: center;
   cursor: pointer;
   transition: transform 0.2s ease;
+  text-decoration: none;
 }
 
 .navbarLogo:hover {
