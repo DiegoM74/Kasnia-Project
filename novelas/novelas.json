@@ -25,5 +25,32 @@
     "shortName": "Dragon Chain",
     "genres": ["Acción", "Aventura", "Drama", "Escolar", "Fantasía", "Romance"],
     "link": "dragon-chain"
+  },
+  {
+    "id": "04",
+    "nameJp": "Assassin's Pride",
+    "nameEn": "Assassins Pride",
+    "nameEs": "Orgullo de Asesino",
+    "shortName": "",
+    "genres": ["Acción", "Erótico", "Escolar", "Fantasía"],
+    "link": "assassins-pride"
+  },
+  {
+    "id": "05",
+    "nameJp": "Madougushi Dahliya wa Utsumukanai: Kyou kara Jiyuu na Shokunin Life",
+    "nameEn": "Dahlia in Bloom: Crafting a Fresh Start with Magical Tools",
+    "nameEs": "",
+    "shortName": "Madougushi Dahliya",
+    "genres": ["Comedia", "Fantasía", "Recuentos de la vida", "Romance"],
+    "link": "madougushi-dahliya"
+  },
+  {
+    "id": "06",
+    "nameJp": "Mizu Zokusei no Mahoutsukai",
+    "nameEn": "The Water Magician",
+    "nameEs": "",
+    "shortName": "",
+    "genres": ["Acción", "Aventura", "Comedia", "Fantasía"],
+    "link": "mizu-zokusei"
   }
 ]
