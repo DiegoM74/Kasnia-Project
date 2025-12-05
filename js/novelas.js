@@ -140,7 +140,7 @@
       elements.novelsGrid.innerHTML = pageData
         .map(
           (novel) => `
-        <a href="/novelas/${novel.link}" class="novelCard" style="view-transition-name: ${novel.id}">
+        <a href="/novelas/${novel.link}" class="novelCard" style="view-transition-name: id-${novel.id}">
           <div class="novelCoverContainer">
             <picture>
               <source srcset="/img/cover/avif/${novel.id}.avif" type="image/avif" />
