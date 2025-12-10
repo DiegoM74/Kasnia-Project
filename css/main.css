@@ -277,7 +277,7 @@ header {
   color: var(--accent);
 }
 
-/* Responsive */
+/* Responsive con media queries, horrible, pero es lo que hay */
 @media (max-width: 600px) {
   .navbarLinks {
     display: none;
@@ -288,7 +288,6 @@ header {
   }
 }
 
-/* Botón Volver Arriba */
 .backToTopContainer {
   position: fixed;
   bottom: 2rem;

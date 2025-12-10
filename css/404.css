@@ -1,0 +1,93 @@
+main {
+  min-height: 80dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  width: 100%;
+  margin-top: 70px;
+}
+
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+.ghostWrapper {
+  animation: floatGhost 3s ease-in-out infinite;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.ghostIcon {
+  width: 15rem;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.2));
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.errorCode {
+  font-size: clamp(4rem, 10vw, 6rem);
+  font-weight: 800;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: -2px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(45deg, var(--text-primary), var(--accent));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.errorHeading {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.errorDescription {
+  color: var(--text-secondary);
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  margin: 0;
+  line-height: 1.6;
+  max-width: 40ch;
+}
+
+.homeButton {
+  background-color: var(--accent);
+  color: #fff;
+  padding: 0.7rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  margin-top: 1rem;
+}
+
+.homeButton:hover {
+  transform: scale(1.03);
+}
+
+@keyframes floatGhost {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
