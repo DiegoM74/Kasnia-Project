@@ -2,6 +2,15 @@
   navigation: auto;
 }
 
+/* View Transition z-index control */
+::view-transition-group(*) {
+  z-index: 1;
+}
+
+::view-transition-group(header) {
+  z-index: 9999;
+}
+
 /* Variables de color */
 :root {
   --bg-primary: #0f0f0f;
@@ -44,6 +53,7 @@ header {
   left: 0;
   right: 0;
   z-index: 1000;
+  view-transition-name: header;
 }
 
 /* Navbar */
