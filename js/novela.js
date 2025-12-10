@@ -56,6 +56,10 @@ function initModal() {
 
   volumeCards.forEach((card) => {
     card.addEventListener("click", () => {
+      // Skip modal for upcoming volumes
+      if (card.classList.contains("upcoming")) {
+        return;
+      }
       openModal(card);
     });
   });
@@ -77,18 +81,44 @@ function initModal() {
   });
 }
 
+function isValidLink(link) {
+  return link && link !== "#" && link.trim() !== "";
+}
+
+function hasValidLinks(serverLinks) {
+  return isValidLink(serverLinks?.pdf) || isValidLink(serverLinks?.epub);
+}
+
 function openModal(card) {
   const modalOverlay = document.getElementById("downloadModal");
   const modalTitle = document.getElementById("modalVolumeTitle");
   const creditsContainer = document.getElementById("creditsContainer");
+  const modalHeader = document.querySelector(".modalHeader");
 
   if (!modalOverlay || !card) return;
 
   const volumeNumber = card.dataset.volume;
   const creditsData = JSON.parse(card.dataset.credits || "[]");
   const linksData = JSON.parse(card.dataset.links || "{}");
+  const isPreview = card.classList.contains("preview");
+
+  // Update modal title with preview indicator if needed
+  const existingIndicator = modalHeader.querySelector(".previewIndicator");
+  if (existingIndicator) {
+    existingIndicator.remove();
+  }
 
   modalTitle.textContent = `Volumen ${volumeNumber}`;
+
+  if (isPreview) {
+    const indicator = document.createElement("span");
+    indicator.className = "previewIndicator";
+    indicator.innerHTML = `
+      <svg><use href="/img/svg/novela.svg#eyeIcon" /></svg>
+      Vista previa
+    `;
+    modalTitle.insertAdjacentElement("afterend", indicator);
+  }
 
   creditsContainer.innerHTML = creditsData
     .map(
@@ -102,12 +132,48 @@ function openModal(card) {
     .join("");
 
   modalOverlay.dataset.currentLinks = JSON.stringify(linksData);
+  modalOverlay.dataset.isPreview = isPreview ? "true" : "false";
 
-  const activeServer =
-    document.querySelector(".serverBtn.active")?.dataset.server || "propio";
+  // Update server button states based on available links
+  updateServerButtons(linksData);
+
+  // Determine which server to show first
+  let activeServer = "propio";
+  const propioHasLinks = hasValidLinks(linksData.propio);
+  const driveHasLinks = hasValidLinks(linksData.drive);
+
+  if (!propioHasLinks && driveHasLinks) {
+    activeServer = "drive";
+  }
+
+  // Set the correct active button
+  const serverBtns = document.querySelectorAll(".serverBtn");
+  serverBtns.forEach((btn) => {
+    btn.classList.remove("active");
+    if (btn.dataset.server === activeServer) {
+      btn.classList.add("active");
+    }
+  });
+
   updateDownloadLinks(linksData, activeServer);
 
   modalOverlay.classList.add("active");
+}
+
+function updateServerButtons(linksData) {
+  const serverBtns = document.querySelectorAll(".serverBtn");
+
+  serverBtns.forEach((btn) => {
+    const server = btn.dataset.server;
+    const serverLinks = linksData[server];
+    const hasLinks = hasValidLinks(serverLinks);
+
+    if (hasLinks) {
+      btn.classList.remove("disabled");
+    } else {
+      btn.classList.add("disabled");
+    }
+  });
 }
 
 function closeModal() {
@@ -126,8 +192,21 @@ function updateDownloadLinks(linksData, server) {
 
   const serverLinks = linksData[server] || { pdf: "#", epub: "#" };
 
-  pdfLink.href = serverLinks.pdf;
-  epubLink.href = serverLinks.epub;
+  // Update PDF link
+  pdfLink.href = serverLinks.pdf || "#";
+  if (isValidLink(serverLinks.pdf)) {
+    pdfLink.classList.remove("disabled");
+  } else {
+    pdfLink.classList.add("disabled");
+  }
+
+  // Update EPUB link
+  epubLink.href = serverLinks.epub || "#";
+  if (isValidLink(serverLinks.epub)) {
+    epubLink.classList.remove("disabled");
+  } else {
+    epubLink.classList.add("disabled");
+  }
 }
 
 function initServerToggle() {
@@ -135,6 +214,14 @@ function initServerToggle() {
 
   serverBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
+      // Don't switch if button is disabled or already active
+      if (
+        btn.classList.contains("disabled") ||
+        btn.classList.contains("active")
+      ) {
+        return;
+      }
+
       serverBtns.forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
 
@@ -146,7 +233,7 @@ function initServerToggle() {
 function triggerLinkUpdate(server) {
   updateDownloadLinks(null, server);
 
-  const links = document.querySelectorAll(".downloadLink");
+  const links = document.querySelectorAll(".downloadLink:not(.disabled)");
   links.forEach((link) => {
     link.classList.remove("update-flash");
     void link.offsetWidth;
