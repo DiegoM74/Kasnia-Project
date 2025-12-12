@@ -1,0 +1,165 @@
+main {
+  margin-top: 70px;
+  padding: 3rem 1.5rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.legalHero {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.legalTitle {
+  color: var(--text-primary);
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.legalSubtitle {
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  max-width: 50ch;
+  margin: 0 auto;
+}
+
+.legalSection {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+  border-left: 4px solid var(--accent);
+  padding-left: 1rem;
+}
+
+.legalText {
+  color: var(--text-primary);
+  margin-block: 1lh;
+}
+
+/* Lista de requerimientos */
+.requirementsList {
+  max-width: 750px;
+  margin: 0 auto;
+  list-style: none;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.requirementItem {
+  display: flex;
+  gap: 1rem;
+  background: var(--bg-secondary);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.requirementItem:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+
+.checkIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  color: var(--accent);
+}
+
+.requirementItem span:last-child {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+/* Sección de Contacto */
+.contactSection {
+  margin-top: 3.5rem;
+}
+
+.contactSection a {
+  display: flex;
+  justify-self: center;
+}
+
+.contactSection p {
+  margin-bottom: 2rem;
+}
+
+.contactBox {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: var(--bg-secondary);
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contactBox:hover {
+  border-color: var(--accent);
+  background: var(--bg-primary);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+}
+
+.contactIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: var(--border);
+  border-radius: 12px;
+  color: var(--accent);
+  transition: background 0.3s ease;
+}
+
+.contactBox:hover .contactIconWrapper {
+  background: var(--accent);
+  color: #fff;
+}
+
+.contactIconWrapper svg {
+  width: 24px;
+  height: 24px;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.contactLabel {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.contactValue {
+  color: var(--text-primary);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.lastUpdate {
+  font-style: italic;
+  color: var(--text-secondary);
+  opacity: 0.8;
+}

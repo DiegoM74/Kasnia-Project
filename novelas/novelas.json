@@ -14,7 +14,16 @@
     "nameEn": "The Beast Tamer Who Was Exiled from His Party Meets a Cat Girl From the Strongest Race",
     "nameEs": "El domador de bestias que fue exiliado de su grupo conoce a una chica gato de la raza más fuerte",
     "shortName": "Beast Tamer",
-    "genres": ["Acción", "Aventura", "Comedia", "Drama", "Erótico", "Fantasía", "Romance", "Sobrenatural"],
+    "genres": [
+      "Acción",
+      "Aventura",
+      "Comedia",
+      "Drama",
+      "Erótico",
+      "Fantasía",
+      "Romance",
+      "Sobrenatural"
+    ],
     "link": "beast-tamer"
   },
   {
