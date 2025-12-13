@@ -1,0 +1,229 @@
+main {
+  margin-top: 70px;
+  padding: 4rem 1.5rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.heroSection {
+  text-align: center;
+  margin-bottom: 5rem;
+  padding: 0 1rem;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.pageTitle {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.heroSubtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.infoCard {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.infoCard:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.infoCard.highlight {
+  background: linear-gradient(
+    180deg,
+    var(--bg-secondary) 0%,
+    rgba(255, 154, 197, 0.03) 100%
+  );
+}
+
+.iconWrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+[data-theme="light"] .iconWrapper {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.infoCard:hover .iconWrapper {
+  background: var(--accent);
+  transform: scale(1.1) rotate(5deg);
+}
+
+.infoCard:hover .infoIcon {
+  color: var(--bg-primary);
+}
+
+.infoIcon {
+  width: 28px;
+  height: 28px;
+  color: var(--accent);
+  transition: color 0.3s ease;
+}
+
+.cardTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.cardDescription {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.donationCta {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.ctaCard {
+  width: 100%;
+  max-width: 700px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 3.5rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.ctaCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+.ctaContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.ctaTitle {
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  font-weight: 800;
+}
+
+.ctaText {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  max-width: 50ch;
+  margin-bottom: 1rem;
+}
+
+.paypalButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--accent);
+  color: var(--bg-primary);
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.paypalButton:hover {
+  transform: scale(1.03);
+}
+
+.paypalSvg {
+  width: 24px;
+  height: 24px;
+}
+
+.paypalLinkText {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  opacity: 0.6;
+  font-family: monospace;
+  letter-spacing: 0.5px;
+}
+
+.infoCard {
+  animation: fadeIn 0.8s ease-out backwards;
+}
+
+.infoCard:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.infoCard:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.infoCard:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.donationCta {
+  animation: fadeIn 0.8s ease-out backwards;
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
