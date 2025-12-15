@@ -9,7 +9,6 @@ main {
   gap: 4rem;
   position: relative;
   z-index: 1;
-  container-type: inline-size;
 }
 
 [data-theme="dark"] main {
@@ -49,7 +48,7 @@ main {
   box-shadow: var(--shadow-card);
   border: 2px solid var(--border);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  aspect-ratio: 52 / 75;
+  aspect-ratio: 1 / 1.43;
   width: 100%;
   max-width: 320px;
   flex: 0 1 320px;
@@ -281,7 +280,7 @@ main {
   overflow: hidden;
   border: 2px solid var(--border);
   background: var(--bg-secondary);
-  aspect-ratio: 52 / 75;
+  aspect-ratio: 1 / 1.43;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   box-shadow: var(--shadow-card);
@@ -347,7 +346,6 @@ main {
   height: 16px;
 }
 
-/* Volume Badges (Preview/Upcoming) */
 .volumeBadge {
   position: absolute;
   top: 12px;
@@ -372,7 +370,6 @@ main {
   box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
 }
 
-/* Upcoming Volume State */
 .volumeCard.upcoming {
   cursor: not-allowed;
 }
@@ -386,12 +383,10 @@ main {
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* Preview Volume State */
 .volumeCard.preview:hover {
   border-color: rgba(245, 158, 11, 0.6);
 }
 
-/* Modal Preview Indicator */
 .previewIndicator {
   background: linear-gradient(135deg, #f59e0b, #d97706);
   color: #fff;
@@ -412,17 +407,6 @@ main {
   height: 12px;
 }
 
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.7;
-  }
-}
-
-/* Disabled Download Link */
 .downloadLink.disabled {
   opacity: 0.4;
   pointer-events: none;
@@ -435,7 +419,6 @@ main {
   box-shadow: none;
 }
 
-/* Disabled Server Button */
 .serverBtn.disabled {
   opacity: 0.4;
   pointer-events: none;

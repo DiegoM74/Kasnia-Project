@@ -176,7 +176,7 @@ main {
   position: relative;
   border: 2px solid var(--border);
   background: var(--bg-secondary);
-  aspect-ratio: 52 / 75;
+  aspect-ratio: 1 / 1.43;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: var(--shadow-card);
   z-index: 1;
