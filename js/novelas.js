@@ -10,28 +10,28 @@
     searchQuery: "",
   };
 
-  const elements = {
-    searchInput: document.getElementById("searchInput"),
-    filterToggle: document.getElementById("filterToggle"),
-    genreFilters: document.getElementById("genreFilters"),
-    genreList: document.getElementById("genreList"),
-    novelsGrid: document.getElementById("novelsGrid"),
-    noResultsMessage: document.getElementById("noResultsMessage"),
-    paginationBottom: document.getElementById("paginationBottom"),
-    itemsPerPageSelect: document.getElementById("itemsPerPage"),
-    prevPageBottom: document.getElementById("prevPageBottom"),
-    nextPageBottom: document.getElementById("nextPageBottom"),
-    pageInfoBottom: document.getElementById("pageInfoBottom"),
-  };
-
+  const elements = {};
   let searchTimeout;
 
   async function init() {
+    // Cachear elementos del DOM una vez
+    elements.searchInput = document.getElementById("searchInput");
+    elements.filterToggle = document.getElementById("filterToggle");
+    elements.genreFilters = document.getElementById("genreFilters");
+    elements.genreList = document.getElementById("genreList");
+    elements.novelsGrid = document.getElementById("novelsGrid");
+    elements.noResultsMessage = document.getElementById("noResultsMessage");
+    elements.paginationBottom = document.getElementById("paginationBottom");
+    elements.itemsPerPageSelect = document.getElementById("itemsPerPage");
+    elements.prevPageBottom = document.getElementById("prevPageBottom");
+    elements.nextPageBottom = document.getElementById("nextPageBottom");
+    elements.pageInfoBottom = document.getElementById("pageInfoBottom");
+
     try {
       const response = await fetch("/novelas/novelas.json");
       if (!response.ok) throw new Error("Error al cargar novelas");
       state.allNovels = await response.json();
-      state.filteredNovels = [...state.allNovels];
+      state.filteredNovels = state.allNovels.slice();
 
       setupEventListeners();
       renderGenreFilters();
@@ -61,8 +61,7 @@
 
     elements.itemsPerPageSelect.addEventListener("change", (e) => {
       const val = e.target.value;
-      state.itemsPerPage =
-        val === "all" ? state.filteredNovels.length : parseInt(val);
+      state.itemsPerPage = val === "all" ? state.filteredNovels.length : +val;
       state.currentPage = 1;
       renderNovels();
       updatePagination();
@@ -74,49 +73,65 @@
 
   function renderGenreFilters() {
     const allGenres = new Set();
-    state.allNovels.forEach((n) => n.genres.forEach((g) => allGenres.add(g)));
+    for (const novel of state.allNovels) {
+      for (const genre of novel.genres) {
+        allGenres.add(genre);
+      }
+    }
 
-    elements.genreList.innerHTML = Array.from(allGenres)
-      .sort()
+    const sortedGenres = [...allGenres].sort();
+    elements.genreList.innerHTML = sortedGenres
       .map(
         (g) =>
           `<button class="genreTag" data-genre="${g}" role="checkbox" aria-checked="false">${g}</button>`
       )
       .join("");
 
-    elements.genreList.querySelectorAll(".genreTag").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const g = btn.dataset.genre;
-        if (state.selectedGenres.has(g)) {
-          state.selectedGenres.delete(g);
-          btn.classList.remove("active");
-          btn.setAttribute("aria-checked", "false");
-        } else {
-          state.selectedGenres.add(g);
-          btn.classList.add("active");
-          btn.setAttribute("aria-checked", "true");
-        }
-        applyFilters();
-      });
+    // Delegación de eventos en lugar de múltiples listeners
+    elements.genreList.addEventListener("click", (e) => {
+      const btn = e.target.closest(".genreTag");
+      if (!btn) return;
+
+      const g = btn.dataset.genre;
+      const isActive = state.selectedGenres.has(g);
+
+      if (isActive) {
+        state.selectedGenres.delete(g);
+        btn.classList.remove("active");
+        btn.setAttribute("aria-checked", "false");
+      } else {
+        state.selectedGenres.add(g);
+        btn.classList.add("active");
+        btn.setAttribute("aria-checked", "true");
+      }
+      applyFilters();
     });
   }
 
   function applyFilters() {
+    const query = state.searchQuery;
+    const genres = state.selectedGenres;
+    const hasGenreFilter = genres.size > 0;
+
     state.filteredNovels = state.allNovels.filter((novel) => {
-      const matchSearch =
-        !state.searchQuery ||
-        novel.nameJp.toLowerCase().includes(state.searchQuery) ||
-        novel.nameEn.toLowerCase().includes(state.searchQuery) ||
-        (novel.nameEs &&
-          novel.nameEs.toLowerCase().includes(state.searchQuery)) ||
-        (novel.novelTitle &&
-          novel.novelTitle.toLowerCase().includes(state.searchQuery));
+      // Verificar búsqueda
+      if (query) {
+        const matchSearch =
+          novel.nameJp.toLowerCase().includes(query) ||
+          novel.nameEn.toLowerCase().includes(query) ||
+          (novel.nameEs && novel.nameEs.toLowerCase().includes(query)) ||
+          (novel.novelTitle && novel.novelTitle.toLowerCase().includes(query));
+        if (!matchSearch) return false;
+      }
 
-      const matchGenres =
-        state.selectedGenres.size === 0 ||
-        Array.from(state.selectedGenres).every((g) => novel.genres.includes(g));
+      // Verificar géneros
+      if (hasGenreFilter) {
+        for (const g of genres) {
+          if (!novel.genres.includes(g)) return false;
+        }
+      }
 
-      return matchSearch && matchGenres;
+      return true;
     });
 
     state.currentPage = 1;
@@ -126,8 +141,10 @@
 
   function renderNovels() {
     const start = (state.currentPage - 1) * state.itemsPerPage;
-    const end = start + state.itemsPerPage;
-    const pageData = state.filteredNovels.slice(start, end);
+    const pageData = state.filteredNovels.slice(
+      start,
+      start + state.itemsPerPage
+    );
 
     if (pageData.length === 0) {
       elements.novelsGrid.style.display = "none";
@@ -135,23 +152,31 @@
     } else {
       elements.novelsGrid.style.display = "grid";
       elements.noResultsMessage.style.display = "none";
-      elements.novelsGrid.innerHTML = pageData
-        .map(
-          (novel) => `
-        <a href="/novelas/${novel.link}" class="novelCard" style="view-transition-name: n${novel.id}">
-          <div class="novelCoverContainer">
-            <picture>
-              <source srcset="/img/cover/avif/${novel.id}.avif" type="image/avif" />
-              <img src="/img/cover/jpg/${novel.id}.jpg" alt="${novel.nameJp}" class="novelCover" loading="lazy" />
-            </picture>
-            <div class="hoverOverlay">
-              <span>Leer Ahora</span>
+
+      // Usar DocumentFragment para mejor rendimiento
+      const fragment = document.createDocumentFragment();
+      const template = document.createElement("template");
+
+      for (const novel of pageData) {
+        template.innerHTML = `
+          <a href="/novelas/${novel.link}" class="novelCard" style="view-transition-name: n${novel.id}">
+            <div class="novelCoverContainer">
+              <picture>
+                <source srcset="/img/cover/avif/${novel.id}.avif" type="image/avif" />
+                <img src="/img/cover/jpg/${novel.id}.jpg" alt="${novel.nameJp}" class="novelCover" loading="lazy" />
+              </picture>
+              <div class="hoverOverlay">
+                <span>Leer Ahora</span>
+              </div>
             </div>
-          </div>
-        </a>
-      `
-        )
-        .join("");
+          </a>`;
+        fragment.appendChild(
+          template.content.firstElementChild.cloneNode(true)
+        );
+      }
+
+      elements.novelsGrid.innerHTML = "";
+      elements.novelsGrid.appendChild(fragment);
     }
     updatePagination();
   }
@@ -163,19 +188,21 @@
   }
 
   function updatePagination() {
-    const total = Math.ceil(state.filteredNovels.length / state.itemsPerPage);
+    const total =
+      Math.ceil(state.filteredNovels.length / state.itemsPerPage) || 1;
     elements.pageInfoBottom.textContent = `Página ${state.currentPage} de ${total}`;
     elements.prevPageBottom.disabled = state.currentPage === 1;
-    elements.nextPageBottom.disabled = state.currentPage === total;
+    elements.nextPageBottom.disabled = state.currentPage >= total;
   }
 
   function updatePaginationVisibility() {
-    // Solo mostrar si hay más de 10 novelas en total filtradas
-    const show = state.filteredNovels.length > 10;
-    elements.paginationBottom.style.display = show ? "flex" : "none";
+    elements.paginationBottom.style.display =
+      state.filteredNovels.length > 10 ? "flex" : "none";
   }
 
-  if (document.readyState === "loading")
+  if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);
-  else init();
+  } else {
+    init();
+  }
 })();

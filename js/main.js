@@ -1,57 +1,52 @@
 const menuToggle = document.getElementById("menuToggle");
 const mobileMenu = document.getElementById("mobileMenu");
-const mobileMenuLinks = document.querySelectorAll(".mobileMenuLinks a");
 
 if (menuToggle && mobileMenu) {
-  const openMenu = () => {
-    mobileMenu.classList.add("active");
-    menuToggle.classList.add("active");
-    document.body.classList.add("menuOpen");
+  const toggleMenu = (forceClose = false) => {
+    const isActive = !forceClose && !mobileMenu.classList.contains("active");
+    mobileMenu.classList.toggle("active", isActive);
+    menuToggle.classList.toggle("active", isActive);
+    document.body.classList.toggle("menuOpen", isActive);
   };
 
-  const closeMenu = () => {
-    mobileMenu.classList.remove("active");
-    menuToggle.classList.remove("active");
-    document.body.classList.remove("menuOpen");
-  };
+  menuToggle.addEventListener("click", () => toggleMenu());
 
-  // Abrir/Cerrar menú
-  menuToggle.addEventListener("click", () => {
-    const isActive = mobileMenu.classList.contains("active");
-    isActive ? closeMenu() : openMenu();
-  });
-
-  // Cerrar al hacer click en un enlace
-  mobileMenuLinks.forEach((link) => {
-    link.addEventListener("click", closeMenu);
+  // Cerrar al hacer click en un enlace del menú
+  document.querySelector(".mobileMenuLinks")?.addEventListener("click", (e) => {
+    if (e.target.tagName === "A") toggleMenu(true);
   });
 
   // Cerrar al hacer click fuera del menú
   mobileMenu.addEventListener("click", (e) => {
-    if (e.target === mobileMenu) {
-      closeMenu();
-    }
+    if (e.target === mobileMenu) toggleMenu(true);
   });
 }
 
-// Botón Volver Arriba
+// Botón Volver Arriba con throttle
 const backToTopBtn = document.getElementById("backToTop");
 
 if (backToTopBtn) {
-  const toggleBackToTop = () => {
-    if (window.scrollY > 300) {
-      backToTopBtn.classList.add("visible");
-    } else {
-      backToTopBtn.classList.remove("visible");
-    }
+  let ticking = false;
+  let lastScrollY = 0;
+
+  const updateBackToTop = () => {
+    backToTopBtn.classList.toggle("visible", lastScrollY > 300);
+    ticking = false;
   };
 
-  window.addEventListener("scroll", toggleBackToTop);
+  window.addEventListener(
+    "scroll",
+    () => {
+      lastScrollY = window.scrollY;
+      if (!ticking) {
+        requestAnimationFrame(updateBackToTop);
+        ticking = true;
+      }
+    },
+    { passive: true }
+  );
 
   backToTopBtn.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 }

@@ -5,54 +5,44 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   const themeToggle = document.getElementById("themeToggle");
+  if (!themeToggle) return;
+
   const html = document.documentElement;
 
-  if (themeToggle) {
-    themeToggle.addEventListener("click", () => {
-      const currentTheme = html.getAttribute("data-theme");
-      const newTheme = currentTheme === "dark" ? "light" : "dark";
+  themeToggle.addEventListener("click", () => {
+    const currentTheme = html.getAttribute("data-theme");
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
 
-      // Función para guardar y aplicar cambios
-      const updateTheme = () => {
-        html.setAttribute("data-theme", newTheme);
-        localStorage.setItem("theme", newTheme);
-      };
+    const updateTheme = () => {
+      html.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+    };
 
-      // View Transition API
-      if (document.startViewTransition) {
-        // Guardar y remover temporalmente los view-transition-name de las portadas
-        const elementsWithTransition = document.querySelectorAll(
-          '[style*="view-transition-name"]'
-        );
-        const savedStyles = new Map();
+    if (!document.startViewTransition) {
+      updateTheme();
+      return;
+    }
 
-        elementsWithTransition.forEach((el) => {
-          savedStyles.set(el, el.getAttribute("style"));
-          const newStyle = el
-            .getAttribute("style")
-            .replace(/view-transition-name:\s*[^;]+;?/g, "")
-            .trim();
-          if (newStyle) {
-            el.setAttribute("style", newStyle);
-          } else {
-            el.removeAttribute("style");
-          }
-        });
+    // Guardar y remover temporalmente view-transition-name de las portadas
+    const elementsWithTransition = document.querySelectorAll(
+      '[style*="view-transition-name"]'
+    );
+    const savedStyles = [];
 
-        const transition = document.startViewTransition(updateTheme);
-
-        // Restaurar los view-transition-name después de la transición
-        transition.finished.finally(() => {
-          elementsWithTransition.forEach((el) => {
-            const savedStyle = savedStyles.get(el);
-            if (savedStyle) {
-              el.setAttribute("style", savedStyle);
-            }
-          });
-        });
-      } else {
-        updateTheme();
-      }
+    elementsWithTransition.forEach((el, i) => {
+      savedStyles[i] = el.getAttribute("style");
+      const newStyle = el.style.cssText
+        .replace(/view-transition-name:\s*[^;]+;?/gi, "")
+        .trim();
+      newStyle
+        ? el.setAttribute("style", newStyle)
+        : el.removeAttribute("style");
     });
-  }
+
+    document.startViewTransition(updateTheme).finished.finally(() => {
+      elementsWithTransition.forEach((el, i) => {
+        if (savedStyles[i]) el.setAttribute("style", savedStyles[i]);
+      });
+    });
+  });
 });
