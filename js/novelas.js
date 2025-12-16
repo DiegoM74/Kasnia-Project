@@ -17,7 +17,6 @@
     genreList: document.getElementById("genreList"),
     novelsGrid: document.getElementById("novelsGrid"),
     noResultsMessage: document.getElementById("noResultsMessage"),
-    // Solo paginación inferior
     paginationBottom: document.getElementById("paginationBottom"),
     itemsPerPageSelect: document.getElementById("itemsPerPage"),
     prevPageBottom: document.getElementById("prevPageBottom"),
@@ -110,10 +109,9 @@
         novel.nameEn.toLowerCase().includes(state.searchQuery) ||
         (novel.nameEs &&
           novel.nameEs.toLowerCase().includes(state.searchQuery)) ||
-        (novel.shortName &&
-          novel.shortName.toLowerCase().includes(state.searchQuery));
+        (novel.novelTitle &&
+          novel.novelTitle.toLowerCase().includes(state.searchQuery));
 
-      // CORRECCIÓN IMPORTANTE: Lógica AND (every) en lugar de OR (some)
       const matchGenres =
         state.selectedGenres.size === 0 ||
         Array.from(state.selectedGenres).every((g) => novel.genres.includes(g));
@@ -140,7 +138,7 @@
       elements.novelsGrid.innerHTML = pageData
         .map(
           (novel) => `
-        <a href="/novelas/${novel.link}" class="novelCard" style="view-transition-name: id-${novel.id}">
+        <a href="/novelas/${novel.link}" class="novelCard" style="view-transition-name: n${novel.id}">
           <div class="novelCoverContainer">
             <picture>
               <source srcset="/img/cover/avif/${novel.id}.avif" type="image/avif" />

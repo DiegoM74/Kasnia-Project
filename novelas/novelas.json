@@ -4,7 +4,7 @@
     "nameJp": "Seirei Gensouki",
     "nameEn": "Spirit Chronicles",
     "nameEs": "Crónicas de los espíritus",
-    "shortName": "",
+    "novelTitle": "Seirei Gensouki",
     "genres": ["Acción", "Aventura", "Drama", "Fantasía", "Romance"],
     "link": "seirei-gensouki"
   },
@@ -13,7 +13,7 @@
     "nameJp": "Yuusha Party wo Tsuihou sareta Beast Tamer, Saikyoushu no Nekomimi Shoujo to Deau",
     "nameEn": "The Beast Tamer Who Was Exiled from His Party Meets a Cat Girl From the Strongest Race",
     "nameEs": "El domador de bestias que fue exiliado de su grupo conoce a una chica gato de la raza más fuerte",
-    "shortName": "Beast Tamer",
+    "novelTitle": "Beast Tamer",
     "genres": [
       "Acción",
       "Aventura",
@@ -31,7 +31,7 @@
     "nameJp": "Dragon Chain Ori -Spirit in the “Heart”",
     "nameEn": "Ori of the Dragon Chain - “Heart” in the Mind",
     "nameEs": "",
-    "shortName": "Dragon Chain",
+    "novelTitle": "Dragon Chain",
     "genres": ["Acción", "Aventura", "Drama", "Escolar", "Fantasía", "Romance"],
     "link": "dragon-chain"
   },
@@ -40,7 +40,7 @@
     "nameJp": "Assassin's Pride",
     "nameEn": "Assassins Pride",
     "nameEs": "Orgullo de Asesino",
-    "shortName": "",
+    "novelTitle": "Assassin's Pride",
     "genres": ["Acción", "Erótico", "Escolar", "Fantasía"],
     "link": "assassins-pride"
   },
@@ -49,7 +49,7 @@
     "nameJp": "Madougushi Dahliya wa Utsumukanai: Kyou kara Jiyuu na Shokunin Life",
     "nameEn": "Dahlia in Bloom: Crafting a Fresh Start with Magical Tools",
     "nameEs": "",
-    "shortName": "Madougushi Dahliya",
+    "novelTitle": "Madougushi Dahliya",
     "genres": ["Comedia", "Fantasía", "Recuentos de la vida", "Romance"],
     "link": "madougushi-dahliya"
   },
@@ -58,7 +58,7 @@
     "nameJp": "Mizu Zokusei no Mahoutsukai",
     "nameEn": "The Water Magician",
     "nameEs": "",
-    "shortName": "",
+    "novelTitle": "Mizu Zokusei no Mahoutsukai",
     "genres": ["Acción", "Aventura", "Comedia", "Fantasía"],
     "link": "mizu-zokusei"
   }
