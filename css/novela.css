@@ -381,9 +381,17 @@ main {
   box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
 }
 
+.volumeBadge.previewBadge::before {
+  content: "Preview";
+}
+
 .volumeBadge.upcomingBadge {
   background: linear-gradient(135deg, #ef4444, #dc2626);
   box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+}
+
+.volumeBadge.upcomingBadge::before {
+  content: "Pronto";
 }
 
 .volumeCard.upcoming {
