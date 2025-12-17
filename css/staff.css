@@ -1,9 +1,21 @@
+/* ========================================
+   MAIN CONTAINER
+======================================== */
 main {
-  margin-top: 70px;
-  padding: 3rem 1.5rem;
+  position: relative;
   max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 70px auto 0;
+  padding: 3rem 1.5rem;
+  z-index: 1;
+}
+
+/* ========================================
+   STAFF HEADER
+======================================== */
+.staffHeader {
+  margin-bottom: 4rem;
+  text-align: center;
+  animation: fadeIn 0.8s ease-out;
 }
 
 @keyframes fadeIn {
@@ -17,18 +29,12 @@ main {
   }
 }
 
-.staffHeader {
-  text-align: center;
-  margin-bottom: 4rem;
-}
-
 .staffTitle {
+  margin-bottom: 1rem;
+  color: var(--text-primary);
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 800;
-  margin-bottom: 0.5rem;
-  color: var(--text-primary);
   line-height: 1.1;
-  letter-spacing: -0.02em;
 }
 
 .staffSubtitle {
@@ -36,31 +42,45 @@ main {
   font-size: 1.1rem;
 }
 
+/* ========================================
+   STAFF GRID
+======================================== */
 .staffGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
-  gap: 1.5rem;
   align-items: start;
+  gap: 1.5rem;
 }
 
+/* ========================================
+   STAFF CARD
+======================================== */
 .staffCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   background-color: var(--bg-secondary);
   border: 1px solid var(--border);
   border-radius: 16px;
   overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+  animation: fadeIn 0.8s ease-out backwards;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .staffCard:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   border-color: var(--accent);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
 }
 
+.staffCard:hover .staffName {
+  color: var(--accent);
+}
+
+/* Creator Card Variant */
 .staffCardCreator {
   border-top: 3px solid #ffd700;
 }
@@ -77,6 +97,7 @@ main {
   pointer-events: none;
 }
 
+/* Admin Card Variant */
 .staffCardAdmin {
   border-top: 3px solid var(--accent);
 }
@@ -85,33 +106,39 @@ main {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, var(--accent), transparent);
-  opacity: 0.05;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 154, 197, 0.05) 0%,
+    transparent 100%
+  );
   pointer-events: none;
 }
 
+/* ========================================
+   STAFF CARD HEADER
+======================================== */
 .staffCardHeader {
-  padding: 1.5rem;
+  position: relative;
   display: flex;
   align-items: center;
   gap: 1.25rem;
-  position: relative;
+  padding: 1.5rem;
 }
 
 .staffAvatarContainer {
+  position: relative;
+  flex-shrink: 0;
   width: 70px;
   height: 70px;
-  flex-shrink: 0;
-  position: relative;
 }
 
 .staffAvatar {
   width: 100%;
   height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
   background-color: var(--bg-primary);
+  border-radius: 50%;
   box-shadow: 0 0 0 2px var(--bg-secondary), 0 0 0 4px var(--border);
+  object-fit: cover;
   transition: box-shadow 0.3s ease;
 }
 
@@ -122,15 +149,15 @@ main {
 .staffAvatarPlaceholder {
   position: absolute;
   inset: 0;
-  background-color: var(--bg-primary);
-  border-radius: 50%;
   display: none;
   align-items: center;
   justify-content: center;
+  background-color: var(--bg-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--bg-secondary), 0 0 0 4px var(--border);
+  color: var(--text-secondary);
   font-size: 1.75rem;
   font-weight: 700;
-  color: var(--text-secondary);
-  box-shadow: 0 0 0 2px var(--bg-secondary), 0 0 0 4px var(--border);
 }
 
 .staffIdentity {
@@ -147,25 +174,19 @@ main {
 }
 
 .staffName {
+  margin: 0;
+  color: var(--text-primary);
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--text-primary);
-  margin: 0;
-}
-
-.staffRole {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  margin: 0;
-  line-height: 1.4;
+  transition: color 0.3s ease;
 }
 
 .staffBadge {
+  padding: 0.2em 0.6em;
+  border-radius: 6px;
   font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
-  padding: 0.2em 0.6em;
-  border-radius: 6px;
   letter-spacing: 0.05em;
   white-space: nowrap;
 }
@@ -180,25 +201,34 @@ main {
   color: #fff;
 }
 
+.staffRole {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+/* ========================================
+   STAFF CARD BODY
+======================================== */
 .staffBody {
-  padding: 1.5rem;
-  padding-top: 0;
-  flex: 1;
   display: flex;
+  flex: 1;
   flex-direction: column;
+  padding: 0 1.5rem 1.5rem;
 }
 
 .staffProjectsLabel {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-secondary);
-  margin-bottom: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border);
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .staffIcon {
@@ -208,31 +238,31 @@ main {
 }
 
 .staffProjectsList {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .staffProjectsList li {
-  font-size: 0.95rem;
-  color: var(--text-primary);
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  color: var(--text-primary);
+  font-size: 0.95rem;
 }
 
 .staffProjectsList li::before {
   content: "";
   display: block;
+  flex-shrink: 0;
   width: 4px;
   height: 4px;
-  border-radius: 50%;
   background-color: var(--accent);
+  border-radius: 50%;
   opacity: 0.7;
-  flex-shrink: 0;
 }
 
 .staffProjectsList a {
@@ -243,9 +273,4 @@ main {
 
 .staffProjectsList a:hover {
   color: var(--accent);
-}
-
-.staffCard:hover .staffName {
-  color: var(--accent);
-  transition: color 0.3s ease;
 }

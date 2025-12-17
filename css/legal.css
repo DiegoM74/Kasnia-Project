@@ -1,65 +1,80 @@
+/* ========================================
+   MAIN CONTAINER
+======================================== */
 main {
-  margin-top: 70px;
-  padding: 3rem 1.5rem;
   max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 70px auto 0;
+  padding: 3rem 1.5rem;
 }
 
+/* ========================================
+   LEGAL HERO
+======================================== */
 .legalHero {
-  text-align: center;
   margin-bottom: 3rem;
+  text-align: center;
 }
 
 .legalTitle {
+  margin-bottom: 1rem;
+  color: var(--text-primary);
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 800;
-  color: var(--text-primary);
   line-height: 1.1;
-  margin-bottom: 1rem;
 }
 
 .legalSubtitle {
-  color: var(--text-secondary);
-  font-size: 1.2rem;
   max-width: 50ch;
   margin: 0 auto;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
 }
 
+/* ========================================
+   LEGAL SECTION
+======================================== */
 .legalSection {
   max-width: 800px;
   margin: 0 auto;
 }
 
 .sectionTitle {
-  font-size: 1.8rem;
   margin-bottom: 2rem;
-  color: var(--text-primary);
-  border-left: 4px solid var(--accent);
   padding-left: 1rem;
+  border-left: 4px solid var(--accent);
+  color: var(--text-primary);
+  font-size: 1.8rem;
 }
 
 .legalText {
-  color: var(--text-primary);
   margin-block: 1lh;
+  color: var(--text-primary);
 }
 
-/* Lista de requerimientos */
+.lastUpdate {
+  color: var(--text-secondary);
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* ========================================
+   REQUIREMENTS LIST (DMCA)
+======================================== */
 .requirementsList {
+  display: grid;
+  gap: 1.5rem;
   max-width: 750px;
   margin: 0 auto;
   list-style: none;
-  display: grid;
-  gap: 1.5rem;
 }
 
 .requirementItem {
   display: flex;
   gap: 1rem;
-  background: var(--bg-secondary);
   padding: 1.5rem;
-  border-radius: 12px;
+  background: var(--bg-secondary);
   border: 1px solid var(--border);
+  border-radius: 12px;
   transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
@@ -83,14 +98,11 @@ main {
   font-size: 1rem;
 }
 
-/* Sección de Contacto */
+/* ========================================
+   CONTACT SECTION
+======================================== */
 .contactSection {
   margin-top: 3.5rem;
-}
-
-.contactSection a {
-  display: flex;
-  justify-self: center;
 }
 
 .contactSection p {
@@ -98,22 +110,25 @@ main {
 }
 
 .contactBox {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 1.5rem;
-  background: var(--bg-secondary);
+  width: fit-content;
+  margin: 0 auto;
   padding: 1.5rem 2rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
   border-radius: 12px;
   text-decoration: none;
-  border: 1px solid var(--border);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .contactBox:hover {
-  border-color: var(--accent);
   background: var(--bg-primary);
-  transform: translateY(-4px);
+  border-color: var(--accent);
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4px);
 }
 
 .contactIconWrapper {
@@ -125,7 +140,7 @@ main {
   background: var(--border);
   border-radius: 12px;
   color: var(--accent);
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .contactBox:hover .contactIconWrapper {
@@ -156,10 +171,4 @@ main {
   color: var(--text-primary);
   font-size: 1.05rem;
   font-weight: 700;
-}
-
-.lastUpdate {
-  font-style: italic;
-  color: var(--text-secondary);
-  opacity: 0.8;
 }

@@ -1,8 +1,10 @@
+/* ========================================
+   VIEW TRANSITION API
+======================================== */
 @view-transition {
   navigation: auto;
 }
 
-/* View Transition z-index control */
 ::view-transition-group(*) {
   z-index: 1;
 }
@@ -11,7 +13,9 @@
   z-index: 9999;
 }
 
-/* Variables de color */
+/* ========================================
+   CSS VARIABLES
+======================================== */
 :root {
   --bg-primary: #0f0f0f;
   --bg-secondary: #1a1a1a;
@@ -32,6 +36,9 @@
   --border: rgba(0, 0, 0, 0.1);
 }
 
+/* ========================================
+   BASE STYLES
+======================================== */
 * {
   margin: 0;
   padding: 0;
@@ -47,6 +54,9 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* ========================================
+   HEADER
+======================================== */
 header {
   position: fixed;
   top: 0;
@@ -56,7 +66,9 @@ header {
   view-transition-name: header;
 }
 
-/* Navbar */
+/* ========================================
+   NAVBAR
+======================================== */
 .navbar {
   background: var(--navbar-bg);
   backdrop-filter: blur(10px);
@@ -80,9 +92,8 @@ header {
   height: 45px;
   display: flex;
   align-items: center;
-  cursor: pointer;
-  transition: transform 0.2s ease;
   text-decoration: none;
+  transition: transform 0.2s ease;
 }
 
 .navbarLogo:hover {
@@ -90,9 +101,9 @@ header {
 }
 
 .logo {
-  color: var(--text-primary);
   height: 100%;
   width: auto;
+  color: var(--text-primary);
 }
 
 .navbarRight {
@@ -108,12 +119,12 @@ header {
 }
 
 .navbarLinks a {
+  position: relative;
   color: var(--text-primary);
   text-decoration: none;
   font-weight: 500;
   font-size: 0.95rem;
   transition: color 0.2s ease;
-  position: relative;
 }
 
 .navbarLinks a::after {
@@ -135,17 +146,19 @@ header {
   width: 100%;
 }
 
-/* Botón de tema */
+/* ========================================
+   THEME TOGGLE BUTTON
+======================================== */
 .themeToggle {
-  background: none;
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
   transition: background 0.2s ease;
 }
 
@@ -156,40 +169,45 @@ header {
 .themeToggle svg {
   width: 24px;
   height: 24px;
-  transition: transform 0.3s ease;
   color: var(--text-primary);
+  transition: transform 0.3s ease;
 }
 
 .themeToggle:hover svg {
   transform: rotate(20deg);
 }
 
-[data-theme="light"] .sunIcon {
-  display: none;
-}
-[data-theme="light"] .moonIcon {
+.sunIcon {
   display: block;
 }
-[data-theme="dark"] .sunIcon {
-  display: block;
-}
-[data-theme="dark"] .moonIcon {
+
+.moonIcon {
   display: none;
 }
 
-/* Botón menú hamburguesa */
+[data-theme="light"] .sunIcon {
+  display: none;
+}
+
+[data-theme="light"] .moonIcon {
+  display: block;
+}
+
+/* ========================================
+   MENU TOGGLE BUTTON (Mobile)
+======================================== */
 .menuToggle {
-  background: none;
-  border: none;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
+  position: relative;
+  display: none;
   align-items: center;
   justify-content: center;
-  display: none;
-  position: relative;
-  z-index: 1001;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
   border-radius: 50%;
+  cursor: pointer;
+  z-index: 1001;
   transition: background 0.2s ease;
 }
 
@@ -198,19 +216,19 @@ header {
 }
 
 .menuToggle svg {
+  position: absolute;
   width: 24px;
   height: 24px;
   color: var(--text-primary);
-  position: absolute;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.menuToggle .menuIcon {
+.menuIcon {
   opacity: 1;
   transform: rotate(0deg);
 }
 
-.menuToggle .closeIcon {
+.closeIcon {
   opacity: 0;
   transform: rotate(90deg);
 }
@@ -225,23 +243,25 @@ header {
   transform: rotate(0deg);
 }
 
-/* Menú móvil */
+/* ========================================
+   MOBILE MENU
+======================================== */
 .mobileMenu {
   position: fixed;
   top: 70px;
   right: -100%;
   width: 100%;
   height: calc(100dvh - 70px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background: var(--navbar-bg);
   backdrop-filter: blur(10px);
   border-top: 1px solid var(--border);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   z-index: 999;
   transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 .mobileMenu.active {
@@ -249,11 +269,11 @@ header {
 }
 
 .mobileMenuLinks {
-  list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
   align-items: center;
+  gap: 2rem;
+  list-style: none;
 }
 
 .mobileMenuLinks a {
@@ -263,7 +283,7 @@ header {
   font-weight: 600;
   opacity: 0;
   transform: translateX(30px);
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
 }
 
 .mobileMenu.active .mobileMenuLinks a {
@@ -271,15 +291,15 @@ header {
   transform: translateX(0);
 }
 
-.mobileMenuLinks a:nth-child(1) {
+.mobileMenuLinks li:nth-child(1) a {
   transition-delay: 0.1s;
 }
 
-.mobileMenuLinks a:nth-child(2) {
+.mobileMenuLinks li:nth-child(2) a {
   transition-delay: 0.15s;
 }
 
-.mobileMenuLinks a:nth-child(3) {
+.mobileMenuLinks li:nth-child(3) a {
   transition-delay: 0.2s;
 }
 
@@ -287,69 +307,9 @@ header {
   color: var(--accent);
 }
 
-/* Responsive con media queries, horrible, pero es lo que hay */
-@media (max-width: 600px) {
-  .navbarLinks {
-    display: none;
-  }
-
-  .menuToggle {
-    display: flex;
-  }
-}
-
-.backToTopContainer {
-  position: fixed;
-  bottom: 2rem;
-  left: 0;
-  right: 0;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  pointer-events: none;
-  z-index: 900;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.backToTop {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  color: var(--text-primary);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: auto;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.backToTop.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.backToTop:hover {
-  background: var(--accent);
-  color: #fff;
-  border-color: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-}
-
-.backToTop svg {
-  width: 24px;
-  height: 24px;
-  stroke-width: 2px;
-}
-
-/* Footer */
+/* ========================================
+   FOOTER
+======================================== */
 footer {
   background-color: var(--bg-secondary);
   border-top: 1px solid var(--border);
@@ -366,9 +326,9 @@ footer {
 .footerContent {
   display: grid;
   grid-template-columns: 1.5fr 2fr 1fr;
+  align-items: start;
   gap: 2.5rem;
   margin-bottom: 2.5rem;
-  align-items: start;
 }
 
 .footerBrand {
@@ -389,25 +349,25 @@ footer {
 }
 
 .footerDescription {
+  max-width: 280px;
   color: var(--text-secondary);
   font-size: 0.95rem;
   line-height: 1.6;
-  max-width: 280px;
 }
 
 .footerLinksGroup {
   display: flex;
-  gap: 4rem;
   justify-content: center;
+  gap: 4rem;
 }
 
 .footerHeading {
+  margin-bottom: 1.2rem;
   color: var(--text-primary);
   font-size: 0.95rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: 1.2rem;
 }
 
 .footerList {
@@ -419,16 +379,12 @@ footer {
 }
 
 .footerLink {
+  position: relative;
+  display: inline-block;
   color: var(--text-secondary);
   text-decoration: none;
   font-size: 0.95rem;
   transition: color 0.2s ease;
-  position: relative;
-  display: inline-block;
-}
-
-.footerLink:hover {
-  color: var(--accent);
 }
 
 .footerLink::after {
@@ -440,6 +396,10 @@ footer {
   height: 1px;
   background: var(--accent);
   transition: width 0.3s ease;
+}
+
+.footerLink:hover {
+  color: var(--accent);
 }
 
 .footerLink:hover::after {
@@ -463,9 +423,9 @@ footer {
   justify-content: center;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
   background-color: var(--bg-primary);
   border: 1px solid var(--border);
+  border-radius: 50%;
   color: var(--text-secondary);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -495,7 +455,63 @@ footer {
   font-size: 0.85rem;
 }
 
-/* Responsive */
+/* ========================================
+   BACK TO TOP BUTTON
+======================================== */
+.backToTopContainer {
+  position: fixed;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  pointer-events: none;
+  z-index: 900;
+}
+
+.backToTop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--text-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  pointer-events: auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backToTop.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.backToTop:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.backToTop svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2px;
+}
+
+/* ========================================
+   MEDIA QUERIES
+======================================== */
 @media (max-width: 768px) {
   .footerContent {
     grid-template-columns: 1fr;
@@ -525,10 +541,20 @@ footer {
   }
 }
 
+@media (max-width: 600px) {
+  .navbarLinks {
+    display: none;
+  }
+
+  .menuToggle {
+    display: flex;
+  }
+}
+
 @media (max-width: 480px) {
   .footerLinksGroup {
-    gap: 3rem;
     flex-wrap: wrap;
+    gap: 3rem;
   }
 
   .footerContainer {

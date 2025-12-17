@@ -1,39 +1,60 @@
+/* ========================================
+   MAIN CONTAINER
+======================================== */
 main {
-  margin-top: 70px;
-  padding: 4rem 1.5rem;
   max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 70px auto 0;
+  padding: 4rem 1.5rem;
 }
 
+/* ========================================
+   HERO SECTION
+======================================== */
 .heroSection {
-  text-align: center;
   margin-bottom: 5rem;
   padding: 0 1rem;
+  text-align: center;
   animation: fadeIn 0.8s ease-out;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .pageTitle {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 800;
   margin-bottom: 1rem;
   color: var(--text-primary);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
   line-height: 1.1;
 }
 
 .heroSubtitle {
+  margin: 0 auto;
   color: var(--text-secondary);
   font-size: 1.1rem;
-  margin: 0 auto;
   line-height: 1.5;
 }
 
+/* ========================================
+   CONTENT WRAPPER
+======================================== */
 .contentWrapper {
   display: flex;
   flex-direction: column;
   gap: 4rem;
 }
 
+/* ========================================
+   INFO GRID
+======================================== */
 .infoGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -42,17 +63,30 @@ main {
 }
 
 .infoCard {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 2rem;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 1.2rem;
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
+  padding: 2rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 20px;
   overflow: hidden;
+  animation: fadeIn 0.8s ease-out backwards;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.infoCard:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.infoCard:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.infoCard:nth-child(3) {
+  animation-delay: 0.3s;
 }
 
 .infoCard:hover {
@@ -70,13 +104,13 @@ main {
 }
 
 .iconWrapper {
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.05);
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
   transition: background 0.3s ease, transform 0.3s ease;
 }
 
@@ -89,10 +123,6 @@ main {
   transform: scale(1.1) rotate(5deg);
 }
 
-.infoCard:hover .infoIcon {
-  color: var(--bg-primary);
-}
-
 .infoIcon {
   width: 28px;
   height: 28px;
@@ -100,10 +130,14 @@ main {
   transition: color 0.3s ease;
 }
 
+.infoCard:hover .infoIcon {
+  color: var(--bg-primary);
+}
+
 .cardTitle {
+  color: var(--text-primary);
   font-size: 1.35rem;
   font-weight: 700;
-  color: var(--text-primary);
 }
 
 .cardDescription {
@@ -112,23 +146,28 @@ main {
   line-height: 1.6;
 }
 
+/* ========================================
+   DONATION CTA
+======================================== */
 .donationCta {
   display: flex;
   justify-content: center;
   width: 100%;
+  animation: fadeIn 0.8s ease-out backwards;
+  animation-delay: 0.4s;
 }
 
 .ctaCard {
+  position: relative;
   width: 100%;
   max-width: 700px;
+  padding: 3.5rem 2rem;
   background: var(--bg-secondary);
   border: 1px solid var(--border);
   border-radius: 24px;
-  padding: 3.5rem 2rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  overflow: hidden;
   transition: transform 0.3s ease;
 }
 
@@ -143,40 +182,40 @@ main {
 }
 
 .ctaContent {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
-  position: relative;
   z-index: 2;
 }
 
 .ctaTitle {
-  font-size: 1.8rem;
   color: var(--text-primary);
+  font-size: 1.8rem;
   font-weight: 800;
 }
 
 .ctaText {
-  color: var(--text-secondary);
-  font-size: 1.1rem;
   max-width: 50ch;
   margin-bottom: 1rem;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
 }
 
 .paypalButton {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  background-color: var(--accent);
-  color: var(--bg-primary);
   padding: 1rem 2.5rem;
+  background-color: var(--accent);
   border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  color: var(--bg-primary);
+  font-size: 1.1rem;
   font-weight: 700;
   text-decoration: none;
-  font-size: 1.1rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .paypalButton:hover {
@@ -190,40 +229,8 @@ main {
 
 .paypalLinkText {
   color: var(--text-secondary);
-  font-size: 0.9rem;
-  opacity: 0.6;
   font-family: monospace;
+  font-size: 0.9rem;
   letter-spacing: 0.5px;
-}
-
-.infoCard {
-  animation: fadeIn 0.8s ease-out backwards;
-}
-
-.infoCard:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.infoCard:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.infoCard:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-.donationCta {
-  animation: fadeIn 0.8s ease-out backwards;
-  animation-delay: 0.4s;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  opacity: 0.6;
 }
