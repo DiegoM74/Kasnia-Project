@@ -14,16 +14,7 @@
     "nameEn": "The Beast Tamer Who Was Exiled from His Party Meets a Cat Girl From the Strongest Race",
     "nameEs": "El domador de bestias que fue exiliado de su grupo conoce a una chica gato de la raza más fuerte",
     "novelTitle": "Beast Tamer",
-    "genres": [
-      "Acción",
-      "Aventura",
-      "Comedia",
-      "Drama",
-      "Erótico",
-      "Fantasía",
-      "Romance",
-      "Sobrenatural"
-    ],
+    "genres": ["Acción", "Aventura", "Comedia", "Drama", "Erótico", "Fantasía", "Romance", "Sobrenatural"],
     "link": "beast-tamer"
   },
   {
@@ -61,5 +52,14 @@
     "novelTitle": "Mizu Zokusei no Mahoutsukai",
     "genres": ["Acción", "Aventura", "Comedia", "Fantasía"],
     "link": "mizu-zokusei"
+  },
+  {
+    "id": "07",
+    "nameJp": "Chiyu Mahou no Machigatta Tsukaikata: Senjou wo Kakeru Kaifuku Youin",
+    "nameEn": "The Wrong Way to Use Healing Magic",
+    "nameEs": "",
+    "novelTitle": "Chiyu Mahou no Machigatta Tsukaikata",
+    "genres": [],
+    "link": "chiyu-mahou"
   }
 ]
